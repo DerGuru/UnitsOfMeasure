@@ -1,4 +1,6 @@
-﻿namespace UnitsOfMeasure.Distances
+﻿using UnitsOfMeasure.AbstractBase;
+
+namespace UnitsOfMeasure.Distances
 {
     public class CentiMeters : Distance<CentiMeters>
     {
@@ -6,6 +8,6 @@
 
         public CentiMeters(double value) : base(value) { }
         public override string SiUnit => "cm";
-        protected override double FactorToBaseUnit => 0.01;
+        internal override double FactorToBaseUnit => 0.01;
     }
 }

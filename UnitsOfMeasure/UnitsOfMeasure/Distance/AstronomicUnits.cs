@@ -1,4 +1,5 @@
-﻿namespace UnitsOfMeasure.Distances
+﻿using UnitsOfMeasure.AbstractBase;
+namespace UnitsOfMeasure.Distances
 {
     public class AstronomicUnits : Distance<AstronomicUnits>
     {
@@ -8,6 +9,6 @@
 
         public override string SiUnit => "au";
 
-        protected override double FactorToBaseUnit => 149597870700;
+        internal override double FactorToBaseUnit => 149597870700;
     }
 }

@@ -1,4 +1,5 @@
-﻿namespace UnitsOfMeasure.Distances
+﻿using UnitsOfMeasure.AbstractBase;
+namespace UnitsOfMeasure.Distances
 {
     public class LunarDistance : Distance<LunarDistance>
     {
@@ -8,6 +9,6 @@
 
         public override string SiUnit => "ly";
 
-        protected override double FactorToBaseUnit => 3842402000;
+        internal override double FactorToBaseUnit => 3842402000;
     }
 }

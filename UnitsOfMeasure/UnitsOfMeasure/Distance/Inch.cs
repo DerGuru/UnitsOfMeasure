@@ -1,4 +1,6 @@
-﻿namespace UnitsOfMeasure.Distances
+﻿using UnitsOfMeasure.AbstractBase;
+
+namespace UnitsOfMeasure.Distances
 {
     public class Inch : Distance<Inch>
     {
@@ -8,6 +10,6 @@
 
         public override string SiUnit => "\"";
 
-        protected override double FactorToBaseUnit => 0.0254;
+        internal override double FactorToBaseUnit => 0.0254;
     }
 }

@@ -1,4 +1,5 @@
-﻿namespace UnitsOfMeasure.Distances
+﻿using UnitsOfMeasure.AbstractBase;
+namespace UnitsOfMeasure.Distances
 {
     public class LightYear : Distance<LightYear>
     {
@@ -8,6 +9,6 @@
 
         public override string SiUnit => "ly";
 
-        protected override double FactorToBaseUnit => 9460730472580800;
+        internal override double FactorToBaseUnit => 9460730472580800;
     }
 }

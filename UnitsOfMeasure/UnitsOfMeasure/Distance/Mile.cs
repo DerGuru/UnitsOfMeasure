@@ -1,4 +1,5 @@
-﻿namespace UnitsOfMeasure.Distances
+﻿using UnitsOfMeasure.AbstractBase;
+namespace UnitsOfMeasure.Distances
 {
     public class Mile : Distance<Mile>
     {
@@ -8,6 +9,6 @@
 
         public override string SiUnit => "mi";
 
-        protected override double FactorToBaseUnit =>  1609.3472;
+        internal override double FactorToBaseUnit =>  1609.3472;
     }
 }

@@ -1,4 +1,5 @@
-﻿namespace UnitsOfMeasure.Distances
+﻿using UnitsOfMeasure.AbstractBase;
+namespace UnitsOfMeasure.Distances
 {
     public class Parsecs : Distance<Parsecs>
     {
@@ -8,6 +9,6 @@
 
         public override string SiUnit => "pc";
 
-        protected override double FactorToBaseUnit => 30856775814913673;
+        internal override double FactorToBaseUnit => 30856775814913673;
     }
 }

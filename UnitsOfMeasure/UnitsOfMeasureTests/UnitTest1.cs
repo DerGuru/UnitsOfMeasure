@@ -1,5 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Runtime.InteropServices;
+using UnitsOfMeasure;
 using UnitsOfMeasure.Areas;
 using UnitsOfMeasure.Distances;
 
@@ -15,6 +15,8 @@ namespace UnitsOfMeasureTests
             var m = new Meters(1);
             var km = new KiloMeters(1);
             Assert.IsTrue(m < km);
+
+            Area.Create<SquareCentiMeters>(100);
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace UnitsOfMeasure.Areas
+﻿using UnitsOfMeasure.AbstractBase;
+
+namespace UnitsOfMeasure.Areas
 {
     public class SquareMeters : Area<SquareMeters>
     {
@@ -10,8 +12,9 @@
         {
         }
 
-        public override string SiUnit => "㎡";
+        public override string SiUnit => "m²";
 
-        protected override double FactorToBaseUnit => 1;
+        internal override double FactorToBaseUnit => 1;
     }
+
 }
