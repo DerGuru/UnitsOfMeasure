@@ -1,4 +1,4 @@
-﻿using UnitsOfMeasure.AbstractBase;
+﻿
 
 namespace UnitsOfMeasure
 {

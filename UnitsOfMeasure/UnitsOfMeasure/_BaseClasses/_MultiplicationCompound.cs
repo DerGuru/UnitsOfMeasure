@@ -1,4 +1,4 @@
-﻿namespace UnitsOfMeasure.AbstractBase
+﻿namespace UnitsOfMeasure
 {
 
     public abstract class MultiplicationCompound<UnitT, Source1T, Source2T> : Compound<UnitT, Source1T, Source2T>

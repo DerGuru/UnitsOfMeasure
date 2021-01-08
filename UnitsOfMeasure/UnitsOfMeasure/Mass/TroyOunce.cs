@@ -1,7 +1,6 @@
-﻿using UnitsOfMeasure.AbstractBase;
-namespace UnitsOfMeasure.Masses
+﻿namespace UnitsOfMeasure.Masses
 {
-    public class TroyOunce : Mass<TroyOunce>
+    public class TroyOunce : Mass
     {
         public TroyOunce()
         {

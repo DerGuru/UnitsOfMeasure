@@ -1,5 +1,4 @@
-﻿using UnitsOfMeasure.AbstractBase;
-using UnitsOfMeasure.Distances;
+﻿using UnitsOfMeasure.Distances;
 
 namespace UnitsOfMeasure.Areas
 {
@@ -15,6 +14,7 @@ namespace UnitsOfMeasure.Areas
 
         public override string SiUnit => "a";
 
+        internal override double FactorToBaseUnit => 100;
     }
 
 }

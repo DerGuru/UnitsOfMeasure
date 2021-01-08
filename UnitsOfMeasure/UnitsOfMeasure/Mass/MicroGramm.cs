@@ -1,7 +1,6 @@
-﻿using UnitsOfMeasure.AbstractBase;
-namespace UnitsOfMeasure.Masses
+﻿namespace UnitsOfMeasure.Masses
 {
-    public class MicroGramm : Mass<MilliGramm>
+    public class MicroGramm : Mass
     {
         public MicroGramm()
         {

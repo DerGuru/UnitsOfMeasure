@@ -1,7 +1,6 @@
-﻿using UnitsOfMeasure.AbstractBase;
-namespace UnitsOfMeasure.Masses
+﻿namespace UnitsOfMeasure.Masses
 {
-    public class MetricTon : Mass<MetricTon>
+    public class MetricTon : Mass
     {
         public MetricTon()
         {

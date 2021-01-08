@@ -1,7 +1,6 @@
-﻿using UnitsOfMeasure.AbstractBase;
-namespace UnitsOfMeasure.Masses
+﻿namespace UnitsOfMeasure.Masses
 {
-    public class Earth : Mass<Earth>
+    public class Earth : Mass
     {
         public Earth()
         {

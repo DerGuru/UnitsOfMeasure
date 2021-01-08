@@ -1,5 +1,4 @@
-﻿using UnitsOfMeasure.AbstractBase;
-using UnitsOfMeasure.Distances;
+﻿using UnitsOfMeasure.Distances;
 
 namespace UnitsOfMeasure.Volumes
 {
@@ -14,5 +13,7 @@ namespace UnitsOfMeasure.Volumes
         }
 
         public override string SiUnit => "Olympic Swimming Pool(s)";
+
+        internal override double FactorToBaseUnit => 2500;
     }
 }

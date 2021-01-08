@@ -1,9 +1,9 @@
 ﻿using System;
 
-namespace UnitsOfMeasure.AbstractBase
+namespace UnitsOfMeasure
 {
-    public abstract class DivisionCompound<UnitT, CounterT, DenominatorT> : Compound<UnitT, CounterT, DenominatorT>
-        where UnitT : DivisionCompound<UnitT, CounterT, DenominatorT> 
+    public class DivisionCompound<UnitT, CounterT, DenominatorT> : Compound<UnitT, CounterT, DenominatorT>
+        where UnitT : UnitOfMeasure<UnitT> 
         where CounterT : UnitOfMeasure<CounterT> 
         where DenominatorT : UnitOfMeasure<DenominatorT>
     {

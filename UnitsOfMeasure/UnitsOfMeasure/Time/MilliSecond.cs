@@ -1,7 +1,7 @@
-﻿using UnitsOfMeasure.AbstractBase;
+﻿
 namespace UnitsOfMeasure.Times
 {
-    public class MilliSecond : Time<MilliSecond>
+    public class MilliSecond : Time
     {
         public MilliSecond()
         {

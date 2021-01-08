@@ -1,7 +1,6 @@
-﻿using UnitsOfMeasure.AbstractBase;
-namespace UnitsOfMeasure.Masses
+﻿namespace UnitsOfMeasure.Masses
 {
-    public class Grain : Mass<Grain>
+    public class Grain : Mass
     {
         public Grain()
         {

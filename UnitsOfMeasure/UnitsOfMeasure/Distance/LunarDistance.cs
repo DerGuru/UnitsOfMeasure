@@ -1,7 +1,6 @@
-﻿using UnitsOfMeasure.AbstractBase;
-namespace UnitsOfMeasure.Distances
+﻿namespace UnitsOfMeasure.Distances
 {
-    public class LunarDistance : Distance<LunarDistance>
+    public class LunarDistance : Distance
     {
         public LunarDistance() {}
 

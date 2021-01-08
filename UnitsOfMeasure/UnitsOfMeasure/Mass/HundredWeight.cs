@@ -1,7 +1,6 @@
-﻿using UnitsOfMeasure.AbstractBase;
-namespace UnitsOfMeasure.Masses
+﻿namespace UnitsOfMeasure.Masses
 {
-    public class HundredWeight : Mass<HundredWeight>
+    public class HundredWeight : Mass
     {
         public HundredWeight()
         {

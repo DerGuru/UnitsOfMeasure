@@ -1,7 +1,7 @@
-﻿using UnitsOfMeasure.AbstractBase;
+﻿
 namespace UnitsOfMeasure.Times
 {
-    public class NanoSecond : Time<NanoSecond>
+    public class NanoSecond : Time
     {
         public NanoSecond()
         {

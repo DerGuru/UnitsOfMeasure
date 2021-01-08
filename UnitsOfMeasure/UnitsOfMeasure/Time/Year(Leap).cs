@@ -1,7 +1,7 @@
-﻿using UnitsOfMeasure.AbstractBase;
+﻿
 namespace UnitsOfMeasure.Times
 {
-    public class LeapYear : Time<LeapYear>
+    public class LeapYear : Time
     {
         public LeapYear()
         {

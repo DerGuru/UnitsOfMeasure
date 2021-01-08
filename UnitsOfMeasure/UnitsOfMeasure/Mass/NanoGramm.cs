@@ -1,7 +1,6 @@
-﻿using UnitsOfMeasure.AbstractBase;
-namespace UnitsOfMeasure.Masses
+﻿namespace UnitsOfMeasure.Masses
 {
-    public class NanoGramm : Mass<NanoGramm>
+    public class NanoGramm : Mass
     {
         public NanoGramm()
         {

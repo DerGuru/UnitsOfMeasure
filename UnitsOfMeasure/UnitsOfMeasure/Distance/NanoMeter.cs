@@ -1,7 +1,6 @@
-﻿using UnitsOfMeasure.AbstractBase;
-namespace UnitsOfMeasure.Distances
+﻿namespace UnitsOfMeasure.Distances
 {
-    public class NanoMeter : Distance<NanoMeter>
+    public class NanoMeter : Distance
     {
         public NanoMeter()
         {

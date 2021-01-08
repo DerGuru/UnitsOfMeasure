@@ -1,7 +1,6 @@
-﻿using UnitsOfMeasure.AbstractBase;
-namespace UnitsOfMeasure.Distances
+﻿namespace UnitsOfMeasure.Distances
 {
-    public class LightYear : Distance<LightYear>
+    public class LightYear : Distance
     {
         public LightYear() {}
 

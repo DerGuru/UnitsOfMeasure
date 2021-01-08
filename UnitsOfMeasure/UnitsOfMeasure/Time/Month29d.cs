@@ -1,7 +1,7 @@
-﻿using UnitsOfMeasure.AbstractBase;
+﻿
 namespace UnitsOfMeasure.Times
 {
-    public class Month29d : Time<Month29d>
+    public class Month29d : Time
     {
         public Month29d()
         {

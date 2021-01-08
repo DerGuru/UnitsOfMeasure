@@ -1,7 +1,6 @@
-﻿using UnitsOfMeasure.AbstractBase;
-namespace UnitsOfMeasure.Masses
+﻿namespace UnitsOfMeasure.Masses
 {
-    public class Gramm : Mass<Gramm>
+    public class Gramm : Mass
     {
         public Gramm()
         {

@@ -1,7 +1,7 @@
-﻿using UnitsOfMeasure.AbstractBase;
+﻿
 namespace UnitsOfMeasure.Times
 {
-    public class Year : Time<Year>
+    public class Year : Time
     {
         public Year()
         {

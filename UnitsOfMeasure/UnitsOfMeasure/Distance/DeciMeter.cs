@@ -1,8 +1,6 @@
-﻿using UnitsOfMeasure.AbstractBase;
-
-namespace UnitsOfMeasure.Distances
+﻿namespace UnitsOfMeasure.Distances
 {
-    public class DeciMeter : Distance<DeciMeter>
+    public class DeciMeter : Distance
     {
         public DeciMeter() { }
 

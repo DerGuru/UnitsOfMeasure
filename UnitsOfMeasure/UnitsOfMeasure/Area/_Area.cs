@@ -1,5 +1,5 @@
 ﻿using System;
-using UnitsOfMeasure.AbstractBase;
+
 using UnitsOfMeasure.Areas;
 using UnitsOfMeasure.Distances;
 
@@ -12,14 +12,7 @@ namespace UnitsOfMeasure
         public static Volume operator *(Area a, Distance d) => new Volume(a, d);
         public static Volume operator *(Distance d, Area a) => new Volume(a, d);
 
-        public static Distance operator /(Area a, Distance d) => a.Div(d);
-        public static Distance operator /(Distance d, Area a) => a.Div(d);
-        private Distance Div(Distance d)
-        {
-            var a = this.Convert<SquareMeter>();
-            var meter = d.Convert<Meter>();
-            return new Meter(a.Value / meter.Value);
-        }
+        public static Distance operator /(Area a, Distance d) => new DivisionCompound<Distance, Area, Distance>(a, d);
 
     }
 

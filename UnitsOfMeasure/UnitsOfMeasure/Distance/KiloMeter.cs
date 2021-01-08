@@ -1,7 +1,6 @@
-﻿using UnitsOfMeasure.AbstractBase;
-namespace UnitsOfMeasure.Distances
+﻿namespace UnitsOfMeasure.Distances
 {
-    public class KiloMeter : Distance<KiloMeter>
+    public class KiloMeter : Distance
     {
         public KiloMeter()
         {

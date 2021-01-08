@@ -1,9 +1,7 @@
-﻿using System;
-
-namespace UnitsOfMeasure.AbstractBase
+﻿namespace UnitsOfMeasure
 {
     public abstract class Compound<UnitT, Source1T, Source2T> : UnitOfMeasure<UnitT>
-        where UnitT : Compound<UnitT, Source1T, Source2T>
+        where UnitT : UnitOfMeasure<UnitT>
         where Source1T : UnitOfMeasure<Source1T>
         where Source2T : UnitOfMeasure<Source2T>
     {
@@ -12,11 +10,14 @@ namespace UnitsOfMeasure.AbstractBase
 
         protected string siUnit;
         public override string SiUnit => siUnit;
-
-        public override T Convert<T>(T target)
+        public override void SetSiUnit(string unit)
         {
-            var t = target.MemberwiseClone() as T;
-            t.siUnit = target.SiUnit;
+            siUnit = unit;
+        }
+        public override T Convert<T>(T target) 
+        {
+            var t = target.Clone() as T;
+            t.SetSiUnit(target.SiUnit);
             t.Value = (target?.FactorToBaseUnit.Equals(FactorToBaseUnit) ?? false)
                 ? Value
                 : Value * FactorToBaseUnit / target.FactorToBaseUnit;

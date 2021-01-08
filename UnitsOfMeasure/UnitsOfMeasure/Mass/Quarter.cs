@@ -1,7 +1,6 @@
-﻿using UnitsOfMeasure.AbstractBase;
-namespace UnitsOfMeasure.Masses
+﻿namespace UnitsOfMeasure.Masses
 {
-    public class Quarter : Mass<Quarter>
+    public class Quarter : Mass
     {
         public Quarter()
         {

@@ -1,8 +1,6 @@
-﻿using UnitsOfMeasure.AbstractBase;
-
-namespace UnitsOfMeasure.Distances
+﻿namespace UnitsOfMeasure.Distances
 {
-    public class Inch : Distance<Inch>
+    public class Inch : Distance
     {
         public Inch() { }
 

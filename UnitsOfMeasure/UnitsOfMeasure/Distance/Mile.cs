@@ -1,7 +1,6 @@
-﻿using UnitsOfMeasure.AbstractBase;
-namespace UnitsOfMeasure.Distances
+﻿namespace UnitsOfMeasure.Distances
 {
-    public class Mile : Distance<Mile>
+    public class Mile : Distance
     {
         public Mile() { }
 

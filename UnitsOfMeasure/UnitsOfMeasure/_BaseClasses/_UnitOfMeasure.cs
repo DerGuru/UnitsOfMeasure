@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace UnitsOfMeasure.AbstractBase
+namespace UnitsOfMeasure
 {
     public abstract class UnitOfMeasure<UnitT> : IEquatable<UnitT>, IComparable<UnitT> where UnitT : UnitOfMeasure<UnitT>
     {
@@ -13,6 +13,7 @@ namespace UnitsOfMeasure.AbstractBase
         }
         public virtual double Value { get; set; }
         public abstract string SiUnit { get; }
+        public virtual void SetSiUnit(string unit) { }
 
         public override string ToString() => $"{Value} {SiUnit}";
 
@@ -70,6 +71,11 @@ namespace UnitsOfMeasure.AbstractBase
             var t = target.MemberwiseClone() as T;
             t.Value = Value * FactorToBaseUnit / target.FactorToBaseUnit;
             return t;
+        }
+
+        public UnitT Clone()
+        {
+            return MemberwiseClone() as UnitT;
         }
 
         public static implicit operator UnitT(UnitOfMeasure<UnitT> same) => same as UnitT;

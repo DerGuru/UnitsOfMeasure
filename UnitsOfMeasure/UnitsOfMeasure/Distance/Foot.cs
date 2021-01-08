@@ -1,8 +1,6 @@
-﻿using UnitsOfMeasure.AbstractBase;
-
-namespace UnitsOfMeasure.Distances
+﻿namespace UnitsOfMeasure.Distances
 {
-    public class Foot : Distance<Foot>
+    public class Foot : Distance
     {
         public Foot() { }
 

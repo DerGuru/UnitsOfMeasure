@@ -1,7 +1,7 @@
-﻿using UnitsOfMeasure.AbstractBase;
+﻿
 namespace UnitsOfMeasure.Times
 {
-    public class Week : Time<Week>
+    public class Week : Time
     {
         public Week()
         {

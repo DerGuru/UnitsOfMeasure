@@ -1,11 +1,9 @@
 ﻿using UnitsOfMeasure.AbstractBase;
-using UnitsOfMeasure.Distances;
-
 namespace UnitsOfMeasure.Volumes
 {
     public class Moon : Volume<Meter>
     {
-        public Moon() : this (1)
+        public Moon() : 
         {
         }
 
@@ -15,5 +13,6 @@ namespace UnitsOfMeasure.Volumes
 
         public override string SiUnit => "Moon(s)";
 
+        internal override double FactorToBaseUnit => 21990642870864709217.827712858943;
     }
 }

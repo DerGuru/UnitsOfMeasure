@@ -1,7 +1,6 @@
-﻿using UnitsOfMeasure.AbstractBase;
-namespace UnitsOfMeasure.Distances
+﻿namespace UnitsOfMeasure.Distances
 {
-    public class AstronomicUnit : Distance<AstronomicUnit>
+    public class AstronomicUnit : Distance
     {
         public AstronomicUnit(){ }
 

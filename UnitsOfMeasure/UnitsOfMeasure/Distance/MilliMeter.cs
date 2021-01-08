@@ -1,7 +1,6 @@
-﻿using UnitsOfMeasure.AbstractBase;
-namespace UnitsOfMeasure.Distances
+﻿namespace UnitsOfMeasure.Distances
 {
-    public class MilliMeter : Distance<MilliMeter>
+    public class MilliMeter : Distance
     {
         public MilliMeter()
         {

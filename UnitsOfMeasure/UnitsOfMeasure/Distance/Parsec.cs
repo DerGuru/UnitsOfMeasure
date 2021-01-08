@@ -1,7 +1,6 @@
-﻿using UnitsOfMeasure.AbstractBase;
-namespace UnitsOfMeasure.Distances
+﻿namespace UnitsOfMeasure.Distances
 {
-    public class Parsec : Distance<Parsec>
+    public class Parsec : Distance
     {
         public Parsec() { }
 

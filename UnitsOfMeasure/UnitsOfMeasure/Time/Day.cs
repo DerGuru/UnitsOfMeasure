@@ -1,7 +1,7 @@
-﻿using UnitsOfMeasure.AbstractBase;
+﻿
 namespace UnitsOfMeasure.Times
 {
-    public class Day : Time<Day>
+    public class Day : Time
     {
         public Day()
         {

@@ -1,4 +1,4 @@
-﻿using UnitsOfMeasure.AbstractBase;
+﻿
 using UnitsOfMeasure.Distances;
 
 namespace UnitsOfMeasure
@@ -19,15 +19,4 @@ namespace UnitsOfMeasure
 
         
     }
-
-   
-}
-namespace UnitsOfMeasure.AbstractBase
-{
-    public abstract class Distance<T> : Distance where T : Distance<T>, new()
-    {
-        protected Distance() : this(1) { }
-        protected Distance(double value) : base(value) { }
-    }
-
 }

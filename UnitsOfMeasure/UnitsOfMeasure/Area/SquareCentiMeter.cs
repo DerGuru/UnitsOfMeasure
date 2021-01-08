@@ -1,5 +1,4 @@
-﻿using UnitsOfMeasure.AbstractBase;
-using UnitsOfMeasure.Distances;
+﻿using UnitsOfMeasure.Distances;
 
 namespace UnitsOfMeasure.Areas
 {
@@ -15,5 +14,4 @@ namespace UnitsOfMeasure.Areas
 
         public override string SiUnit => "cm²";
     }
-
 }

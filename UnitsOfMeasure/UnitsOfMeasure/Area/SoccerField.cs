@@ -1,5 +1,4 @@
-﻿using UnitsOfMeasure.AbstractBase;
-using UnitsOfMeasure.Distances;
+﻿using UnitsOfMeasure.Distances;
 
 namespace UnitsOfMeasure.Areas
 {
@@ -9,11 +8,13 @@ namespace UnitsOfMeasure.Areas
         {
         }
 
-        public SoccerField(double value) : base(value * 105, value * 68)
+        public SoccerField(double value) : base(new Metervalue * 105, value * 68)
         {
         }
 
         public override string SiUnit => "SoccerField(s)";
+
+        internal override double FactorToBaseUnit => 7140;
     }
 
 }

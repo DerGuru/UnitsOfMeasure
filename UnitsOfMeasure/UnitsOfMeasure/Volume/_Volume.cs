@@ -1,15 +1,15 @@
-﻿using UnitsOfMeasure.AbstractBase;
+﻿using UnitsOfMeasure.Volumes;
 
 namespace UnitsOfMeasure
 {
     public class Volume : MultiplicationCompound<Volume, Area, Distance>
     {
         public Volume(Distance a, Distance b, Distance c) : base(new Area(a, b), c) { }
-        public Volume(Area a, Distance d) : base(a,d) { }
+        public Volume(Area a, Distance d) : base(a, d) { }
+
+        public static Area operator /(Volume v, Distance d) => new DivisionCompound<Area, Volume, Distance>(v, d);
     }
-}
-namespace UnitsOfMeasure.AbstractBase
-{
+
     public class Volume<DistanceType> : Volume where DistanceType : Distance, new()
     {
         public Volume() : base(new DistanceType(), new DistanceType(), new DistanceType()) { }
