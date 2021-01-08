@@ -5,20 +5,19 @@ namespace UnitsOfMeasure
 {
     public abstract class Distance : UnitOfMeasure<Distance>
     {
-        protected Distance() { }
+        protected Distance() : this(1) { } 
         protected Distance(double value) : base(value) { }
-        public static DivisionCompound<Velocity, Distance, Time> operator /(Distance d, Time t)
+        
+        public static Velocity operator / (Distance d, Time t)
         {
-            return d.Divide<Time,Velocity>(t);
+            return new Velocity(d,t);
         }
-
         public static Area operator * (Distance a, Distance b)
         {
-            var r = new Meters();
-            var val = a.Convert(r).Value * b.Convert(r).Value;
-            return new Areas.SquareMeters(val);
+            return new Areas.SquareMeter(a.Convert<Meter>().Value * b.Convert<Meter>().Value);
         }
 
+        
     }
 
    
@@ -27,21 +26,8 @@ namespace UnitsOfMeasure.AbstractBase
 {
     public abstract class Distance<T> : Distance where T : Distance<T>, new()
     {
-        protected Distance() { }
+        protected Distance() : this(1) { }
         protected Distance(double value) : base(value) { }
-
-        public override int CompareTo(Distance other)
-            => Value.CompareTo(other.Convert<T>(this as T).Value);
-
-        public override bool Equals(Distance other)
-            => Value.Equals(other.Convert<T>(this as T).Value);
-
-        public override UnitOfMeasure<Distance> Add(UnitOfMeasure<Distance> other)
-            => new T { Value = Value + (other as Distance).Convert<T>(this as T).Value };
-
-        public override UnitOfMeasure<Distance> Subtract(UnitOfMeasure<Distance> other)
-            => new T { Value = Value - (other as Distance).Convert<T>(this as T).Value };
-
-
     }
+
 }

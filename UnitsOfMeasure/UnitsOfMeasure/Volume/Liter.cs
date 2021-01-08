@@ -1,7 +1,9 @@
 ﻿using UnitsOfMeasure.AbstractBase;
+using UnitsOfMeasure.Distances;
+
 namespace UnitsOfMeasure.Volumes
 {
-    public class Liter : Volume<Liter>
+    public class Liter : Volume<DeciMeter>
     {
         public Liter()
         {
@@ -13,6 +15,5 @@ namespace UnitsOfMeasure.Volumes
 
         public override string SiUnit => "l";
 
-        internal override double FactorToBaseUnit => 0.001;
     }
 }

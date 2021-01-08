@@ -1,7 +1,9 @@
 ﻿using UnitsOfMeasure.AbstractBase;
+using UnitsOfMeasure.Distances;
+
 namespace UnitsOfMeasure.Volumes
 {
-    public class CubicYard : Volume<CubicYard>
+    public class CubicYard : Volume<Yard>
     {
         public CubicYard()
         {
@@ -12,7 +14,5 @@ namespace UnitsOfMeasure.Volumes
         }
 
         public override string SiUnit => "yd³";
-
-        internal override double FactorToBaseUnit => 0.764554857984;
     }
 }

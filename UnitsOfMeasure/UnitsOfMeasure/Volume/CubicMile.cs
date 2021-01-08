@@ -1,7 +1,9 @@
 ﻿using UnitsOfMeasure.AbstractBase;
+using UnitsOfMeasure.Distances;
+
 namespace UnitsOfMeasure.Volumes
 {
-    public class CubicMile : Volume<CubicMile>
+    public class CubicMile : Volume<Mile>
     {
         public CubicMile()
         {
@@ -12,7 +14,5 @@ namespace UnitsOfMeasure.Volumes
         }
 
         public override string SiUnit => "mi³";
-
-        internal override double FactorToBaseUnit => 4168206689.375877890048;
     }
 }

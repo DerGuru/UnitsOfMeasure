@@ -1,19 +1,20 @@
 ﻿using UnitsOfMeasure.AbstractBase;
+using UnitsOfMeasure.Distances;
+
 namespace UnitsOfMeasure.Areas
 {
-    public class Ar : Area<Ar>
+    public class Ar : Area<Meter>
     {
-        public Ar()
+        public Ar() : this (1)
         {
         }
 
-        public Ar(double value) : base(value)
+        public Ar(double value) : base(value * 100)
         {
         }
 
         public override string SiUnit => "a";
 
-        internal override double FactorToBaseUnit => 100;
     }
 
 }

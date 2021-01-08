@@ -1,28 +1,38 @@
-﻿using UnitsOfMeasure.AbstractBase;
+﻿using System;
+using UnitsOfMeasure.AbstractBase;
+using UnitsOfMeasure.Areas;
+using UnitsOfMeasure.Distances;
 
 namespace UnitsOfMeasure
 {
-    public abstract class Area : UnitOfMeasure<Area>
+    public class Area : MultiplicationCompound<Area, Distance, Distance>
     {
-        protected Area() { }
-        protected Area(double value) : base(value) { }
+        public Area(Distance v1, Distance v2) : base(v1,v2) { }
+
+        public static Volume operator *(Area a, Distance d) => new Volume(a, d);
+        public static Volume operator *(Distance d, Area a) => new Volume(a, d);
+
+        public static Distance operator /(Area a, Distance d) => a.Div(d);
+        public static Distance operator /(Distance d, Area a) => a.Div(d);
+        private Distance Div(Distance d)
+        {
+            var a = this.Convert<SquareMeter>();
+            var meter = d.Convert<Meter>();
+            return new Meter(a.Value / meter.Value);
+        }
+
     }
-}
-namespace UnitsOfMeasure.AbstractBase
-{
-    public abstract class Area<T> : Area where T : Area<T>, new()
+
+    public class Area<DistanceType> : Area where DistanceType : Distance, new() 
     {
-        protected Area() { }
-        protected Area(double value) : base(value) { }
+        public Area() : base(new DistanceType(),new DistanceType()) { }
+        public Area(double a) : base(a * new DistanceType(), new DistanceType()) { }
+        public Area(double a, double b) : base(a * new DistanceType(), b * new DistanceType()) { }
+    }
 
-        public override int CompareTo(Area other) => Value.CompareTo(other.Convert<T>(this as T).Value);
-
-        public override bool Equals(Area other) => Value.Equals(other.Convert<T>(this as T).Value);
-
-        public override UnitOfMeasure<Area> Add(UnitOfMeasure<Area> other)
-            => new T { Value = Value + (other as Area).Convert<T>(this as T).Value };
-
-        public override UnitOfMeasure<Area> Subtract(UnitOfMeasure<Area> other)
-            => new T { Value = Value - (other as Area).Convert<T>(this as T).Value };
+    public class Area<Distance1, Distance2> : Area where Distance1 : Distance, new() where Distance2 : Distance, new()
+    {
+        public Area() : base(new Distance1(), new Distance2()) { }
+        public Area(double a, double b) : base(a * new Distance1(), b * new Distance2()) { }
     }
 }

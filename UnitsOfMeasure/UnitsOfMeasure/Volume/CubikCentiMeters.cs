@@ -1,13 +1,15 @@
 ﻿using UnitsOfMeasure.AbstractBase;
+using UnitsOfMeasure.Distances;
+
 namespace UnitsOfMeasure.Volumes
 {
-    public class CubicCentiMeters : Volume<CubicCentiMeters>
+    public class CubicCentiMeter : Volume<CentiMeter>
     {
-        public CubicCentiMeters()
+        public CubicCentiMeter()
         {
         }
 
-        public CubicCentiMeters(double value) : base(value)
+        public CubicCentiMeter(double value) : base(value)
         {
         }
 

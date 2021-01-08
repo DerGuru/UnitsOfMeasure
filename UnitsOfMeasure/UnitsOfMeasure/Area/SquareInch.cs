@@ -1,7 +1,9 @@
 ﻿using UnitsOfMeasure.AbstractBase;
+using UnitsOfMeasure.Distances;
+
 namespace UnitsOfMeasure.Areas
 {
-    public class SquareInch : Area<SquareInch>
+    public class SquareInch : Area<Inch>
     {
         public SquareInch()
         {
@@ -12,8 +14,6 @@ namespace UnitsOfMeasure.Areas
         }
 
         public override string SiUnit => "in²";
-
-        internal override double FactorToBaseUnit => 0.00064516;
     }
 
 }

@@ -1,18 +1,18 @@
 ﻿using UnitsOfMeasure.AbstractBase;
+using UnitsOfMeasure.Distances;
+
 namespace UnitsOfMeasure.Volumes
 {
-    public class HectoLiter : Volume<HectoLiter>
+    public class HectoLiter : Volume<Meter>
     {
-        public HectoLiter()
+        public HectoLiter() : this (1)
         {
         }
 
-        public HectoLiter(double value) : base(value)
+        public HectoLiter(double value) : base(value * 0.1)
         {
         }
 
         public override string SiUnit => "hl";
-
-        internal override double FactorToBaseUnit => 0.1;
     }
 }

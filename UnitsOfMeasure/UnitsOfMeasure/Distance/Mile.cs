@@ -9,6 +9,6 @@ namespace UnitsOfMeasure.Distances
 
         public override string SiUnit => "mi";
 
-        internal override double FactorToBaseUnit =>  1609.3472;
+        internal override double FactorToBaseUnit => 1609.3472;
     }
 }

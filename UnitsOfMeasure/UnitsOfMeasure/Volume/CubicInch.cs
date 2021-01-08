@@ -1,7 +1,9 @@
 ﻿using UnitsOfMeasure.AbstractBase;
+using UnitsOfMeasure.Distances;
+
 namespace UnitsOfMeasure.Volumes
 {
-    public class CubicInch : Volume<CubicInch>
+    public class CubicInch : Volume<Inch>
     {
         public CubicInch()
         {
@@ -12,7 +14,5 @@ namespace UnitsOfMeasure.Volumes
         }
 
         public override string SiUnit => "in³";
-
-        internal override double FactorToBaseUnit => 0.000016387064;
     }
 }
