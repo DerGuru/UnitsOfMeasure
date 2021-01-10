@@ -3,9 +3,9 @@ using UnitsOfMeasure.Distances;
 
 namespace UnitsOfMeasure.Areas
 {
-    public class SquareYard : Area<Yard>
+    public class SquareYard : Area
     {
-        public SquareYard()
+        public SquareYard() : this(1)
         {
         }
 
@@ -15,6 +15,7 @@ namespace UnitsOfMeasure.Areas
 
         public override string SiUnit => "yd²";
 
+        internal override double FactorToBaseUnit => 0.83612736;
     }
 
 }

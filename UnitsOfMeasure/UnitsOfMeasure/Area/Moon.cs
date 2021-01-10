@@ -2,14 +2,15 @@
 
 namespace UnitsOfMeasure.Areas
 {
-    public class Moon : Area<KiloMeter>
+    public class Moon : Area
     {
-        public Moon() : this(1)
+        public Moon() : this (1)
         {
         }
 
-        public Moon(double value) : base(value * 37932330)
+        public Moon(double value) : base(value)
         {
+            
         }
 
         public override string SiUnit => "Moon(s)";

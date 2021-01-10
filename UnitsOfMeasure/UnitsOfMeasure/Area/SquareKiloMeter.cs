@@ -3,11 +3,9 @@ using UnitsOfMeasure.Distances;
 
 namespace UnitsOfMeasure.Areas
 {
-    public class SquareKiloMeter : Area<KiloMeter>
+    public class SquareKiloMeter : Area
     {
-        public SquareKiloMeter()
-        {
-        }
+        public SquareKiloMeter() { }
 
         public SquareKiloMeter(double value) : base(value)
         {
@@ -15,7 +13,7 @@ namespace UnitsOfMeasure.Areas
 
         public override string SiUnit => "km²";
 
-       
+        internal override double FactorToBaseUnit => 1000000;
     }
 
 }

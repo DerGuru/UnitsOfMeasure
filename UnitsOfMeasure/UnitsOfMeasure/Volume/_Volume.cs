@@ -4,7 +4,7 @@ namespace UnitsOfMeasure
 {
     public class Volume : MultiplicationCompound<Volume, Area, Distance>
     {
-        public Volume(Distance a, Distance b, Distance c) : base(new Area(a, b), c) { }
+        public Volume(Distance a, Distance b, Distance c) : this((a * b), c) { }
         public Volume(Area a, Distance d) : base(a, d) { }
 
         public static Area operator /(Volume v, Distance d) => new DivisionCompound<Area, Volume, Distance>(v, d);

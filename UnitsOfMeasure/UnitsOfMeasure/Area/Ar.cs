@@ -2,19 +2,19 @@
 
 namespace UnitsOfMeasure.Areas
 {
-    public class Ar : Area<Meter>
+    public class Ar : Area
     {
-        public Ar() : this (1)
+        public Ar() : this(1)
         {
         }
 
-        public Ar(double value) : base(value * 100)
+        public Ar(double value) : base(value)
         {
         }
 
         public override string SiUnit => "a";
 
-        internal override double FactorToBaseUnit => 100;
+        internal override double FactorToBaseUnit { get; } = 100;
     }
 
 }

@@ -4,11 +4,11 @@ namespace UnitsOfMeasure.Volumes
 {
     public class OlympicSwimmingPool : Volume<Meter>
     {
-        public OlympicSwimmingPool() : this(1)
+        public OlympicSwimmingPool() 
         {
         }
 
-        public OlympicSwimmingPool(double value) : base(value * 2500)
+        public OlympicSwimmingPool(double value) : base(value)
         {
         }
 

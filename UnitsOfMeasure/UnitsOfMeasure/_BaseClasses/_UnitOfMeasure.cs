@@ -13,7 +13,7 @@ namespace UnitsOfMeasure
         }
         public virtual double Value { get; set; }
         public abstract string SiUnit { get; }
-        public virtual void SetSiUnit(string unit) { }
+        internal virtual void SetSiUnit(string unit) { }
 
         public override string ToString() => $"{Value} {SiUnit}";
 
@@ -56,10 +56,19 @@ namespace UnitsOfMeasure
         public static UnitT operator *(double a, UnitOfMeasure<UnitT> b) => b.ScalarMultiply(a);
         public static UnitT operator *(UnitOfMeasure<UnitT> a, double b) => a.ScalarMultiply(b);
 
+        public static UnitT operator /(UnitOfMeasure<UnitT> a, double b) => a.ScalarDiv (b);
+
         private UnitT ScalarMultiply(double b)
         {
             var t = MemberwiseClone() as UnitT;
             t.Value = Value * b;
+            return t;
+        }
+
+        private UnitT ScalarDiv(double b)
+        {
+            var t = MemberwiseClone() as UnitT;
+            t.Value = Value / b;
             return t;
         }
 

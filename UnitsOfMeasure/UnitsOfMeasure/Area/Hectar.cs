@@ -2,19 +2,17 @@
 
 namespace UnitsOfMeasure.Areas
 {
-    public class Hectar : Area<Meter>
+    public class Hectar : Area
     {
-        public Hectar() : this (1)
+        public Hectar() : this(1) { }
+        public Hectar(double value) : base(value)
         {
-        }
-
-        public Hectar(double value) : base(value * 10000)
-        {
+            
         }
 
         public override string SiUnit => "ha";
 
-        internal override double FactorToBaseUnit => 10000;
+        internal override double FactorToBaseUnit { get; } = 10000;
     }
 
 }

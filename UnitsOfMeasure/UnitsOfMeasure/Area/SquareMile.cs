@@ -3,7 +3,7 @@ using UnitsOfMeasure.Distances;
 
 namespace UnitsOfMeasure.Areas
 {
-    public class SquareMile : Area<Mile>
+    public class SquareMile : Area
     {
         public SquareMile()
         {
@@ -15,7 +15,7 @@ namespace UnitsOfMeasure.Areas
 
         public override string SiUnit => "mi²";
 
-        
+        internal override double FactorToBaseUnit => 2589975.2356;
     }
 
 }

@@ -2,14 +2,15 @@
 
 namespace UnitsOfMeasure.Areas
 {
-    public class Saarland : Area<KiloMeter>
+    public class Saarland : Area
     {
-        public Saarland() : this(1)
+        public Saarland() : this (1)
         {
         }
 
-        public Saarland(double value) : base(value * 2570)
+        public Saarland(double value) : base(value)
         {
+            
         }
 
         public override string SiUnit => "Saarla(e)nd(er)";

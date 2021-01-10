@@ -3,7 +3,7 @@ using UnitsOfMeasure.Distances;
 
 namespace UnitsOfMeasure.Areas
 {
-    public class SquareNanoMeter : Area<NanoMeter>
+    public class SquareNanoMeter : Area
     {
         public SquareNanoMeter()
         {
@@ -14,6 +14,8 @@ namespace UnitsOfMeasure.Areas
         }
 
         public override string SiUnit => "nm²";
+
+        internal override double FactorToBaseUnit => 0.000000000000000001;
     }
 
 }

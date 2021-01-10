@@ -16,7 +16,5 @@ namespace UnitsOfMeasure
         {
             return new Areas.SquareMeter(a.Convert<Meter>().Value * b.Convert<Meter>().Value);
         }
-
-        
     }
 }

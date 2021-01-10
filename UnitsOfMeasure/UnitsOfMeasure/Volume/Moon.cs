@@ -1,13 +1,14 @@
-﻿using UnitsOfMeasure.AbstractBase;
+﻿using UnitsOfMeasure.Distances;
+
 namespace UnitsOfMeasure.Volumes
 {
     public class Moon : Volume<Meter>
     {
-        public Moon() : 
+        public Moon() 
         {
         }
 
-        public Moon(double value) : base(value * 21990642870864709217.827712858943)
+        public Moon(double value) : base(value)
         {
         }
 

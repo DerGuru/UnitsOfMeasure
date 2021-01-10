@@ -13,5 +13,6 @@ namespace UnitsOfMeasure
             siUnit = $"({a.SiUnit}/{b.SiUnit})";
             Value = a.Value / b.Value;
         }
+
     }
 }

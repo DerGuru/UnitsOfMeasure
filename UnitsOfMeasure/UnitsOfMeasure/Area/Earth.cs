@@ -2,14 +2,15 @@
 
 namespace UnitsOfMeasure.Areas
 {
-    public class Earth : Area<KiloMeter>
+    public class Earth : Area
     {
-        public Earth() : this (1)
+        public Earth() : this(1)
         {
         }
 
-        public Earth(double value) : base(value * 510000000)
+        public Earth(double value) : base(value)
         {
+            
         }
 
         public override string SiUnit => "Earth(s)";

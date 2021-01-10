@@ -42,6 +42,7 @@ namespace UnitsOfMeasureTests
         {
             var a = new Hectar(1);
             var d = new Meter(100);
+
             var res = a / d;
             var m = res.Convert<Meter>();
             Assert.AreEqual(100.0, m.Value);

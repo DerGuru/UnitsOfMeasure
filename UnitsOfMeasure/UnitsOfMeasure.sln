@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitsOfMeasure", "UnitsOfMeasure\UnitsOfMeasure.csproj", "{CB82A380-DDA1-449A-BEDE-A8CEA5924F04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitsOfMeasure", "UnitsOfMeasure\UnitsOfMeasure.csproj", "{CB82A380-DDA1-449A-BEDE-A8CEA5924F04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitsOfMeasureTests", "UnitsOfMeasureTests\UnitsOfMeasureTests.csproj", "{B68391FE-A316-4796-903E-E7F85310F19B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitsOfMeasureTests", "UnitsOfMeasureTests\UnitsOfMeasureTests.csproj", "{B68391FE-A316-4796-903E-E7F85310F19B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

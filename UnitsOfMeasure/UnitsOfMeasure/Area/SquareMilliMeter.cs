@@ -3,7 +3,7 @@ using UnitsOfMeasure.Distances;
 
 namespace UnitsOfMeasure.Areas
 {
-    public class SquareMilliMeter : Area<MilliMeter>
+    public class SquareMilliMeter : Area
     {
         public SquareMilliMeter()
         {
@@ -15,7 +15,7 @@ namespace UnitsOfMeasure.Areas
 
         public override string SiUnit => "mm²";
 
-       
+        internal override double FactorToBaseUnit => 0.000001;
     }
 
 }

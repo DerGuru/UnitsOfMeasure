@@ -2,13 +2,13 @@
 
 namespace UnitsOfMeasure.Areas
 {
-    public class SoccerField : Area<Meter>
+    public class SoccerField : Area
     {
         public SoccerField() : this(1)
         {
         }
 
-        public SoccerField(double value) : base(new Metervalue * 105, value * 68)
+        public SoccerField(double value) : base(value)
         {
         }
 

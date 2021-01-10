@@ -3,14 +3,13 @@ using UnitsOfMeasure.Distances;
 
 namespace UnitsOfMeasure.Areas
 {
-    public class SquareFoot : Area<Foot>
+    public class SquareFoot : Area
     {
-        public SquareFoot() { }
-
-        public SquareFoot(double value) : base(value) { }
+       
 
         public override string SiUnit => "ft²";
 
+        internal override double FactorToBaseUnit => 0.092903;
     }
 
 }

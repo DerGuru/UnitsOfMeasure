@@ -6,6 +6,8 @@
         where Source1T : UnitOfMeasure<Source1T>
         where Source2T : UnitOfMeasure<Source2T>
     {
+        protected MultiplicationCompound() {}
+
         public MultiplicationCompound(Source1T a, Source2T b) 
         {
             Value = a.Value * b.Value;

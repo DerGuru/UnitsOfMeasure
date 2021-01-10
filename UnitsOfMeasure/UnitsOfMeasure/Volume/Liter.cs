@@ -15,5 +15,6 @@ namespace UnitsOfMeasure.Volumes
 
         public override string SiUnit => "l";
 
+        internal override double FactorToBaseUnit => 0.001;
     }
 }

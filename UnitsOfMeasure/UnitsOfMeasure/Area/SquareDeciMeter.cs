@@ -3,9 +3,9 @@ using UnitsOfMeasure.Distances;
 
 namespace UnitsOfMeasure.Areas
 {
-    public class SquareDeciMeter : Area<DeciMeter>
+    public class SquareDeciMeter : Area
     {
-        public SquareDeciMeter()
+        public SquareDeciMeter() : this(1)
         {
         }
 

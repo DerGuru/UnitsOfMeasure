@@ -10,7 +10,7 @@
 
         protected string siUnit;
         public override string SiUnit => siUnit;
-        public override void SetSiUnit(string unit)
+        internal override void SetSiUnit(string unit)
         {
             siUnit = unit;
         }
