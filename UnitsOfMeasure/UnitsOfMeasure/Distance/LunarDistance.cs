@@ -1,13 +1,17 @@
-﻿namespace UnitsOfMeasure.Distances
+﻿using System.Numerics;
+
+namespace UnitsOfMeasure.Distances
 {
     public class LunarDistance : Distance
     {
-        public LunarDistance() {}
+        public LunarDistance() { }
 
         public LunarDistance(double value) : base(value) { }
 
-        public override string SiUnit => "ly";
+        public LunarDistance(BigFloat value) : base(value) { }
 
-        internal override double FactorToBaseUnit => 3842402000;
+        public override string Unit => "ld";
+
+        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(3842402000);
     }
 }

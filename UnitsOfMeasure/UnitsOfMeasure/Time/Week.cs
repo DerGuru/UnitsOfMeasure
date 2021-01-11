@@ -1,19 +1,18 @@
-﻿
+﻿using System.Numerics;
+
 namespace UnitsOfMeasure.Times
 {
     public class Week : Time
     {
-        public Week()
-        {
-        }
+        public Week() { }
 
-        public Week(double value) : base(value)
-        {
-        }
+        public Week(double value) : base(value) { }
 
-        public override string SiUnit => "w";
+        public Week(BigFloat value) : base(value) { }
 
-        internal override double FactorToBaseUnit => 604800.0;
+        public override string Unit => "w";
+
+        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(604800.0);
     }
 
 }

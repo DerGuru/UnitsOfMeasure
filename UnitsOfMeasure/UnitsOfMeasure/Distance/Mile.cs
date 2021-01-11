@@ -1,4 +1,6 @@
-﻿namespace UnitsOfMeasure.Distances
+﻿using System.Numerics;
+
+namespace UnitsOfMeasure.Distances
 {
     public class Mile : Distance
     {
@@ -6,8 +8,10 @@
 
         public Mile(double value) : base(value) { }
 
-        public override string SiUnit => "mi";
+        public Mile(BigFloat value) : base(value) { }
 
-        internal override double FactorToBaseUnit => 1609.3472;
+        public override string Unit => "mi";
+
+        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(16093472,10000);
     }
 }

@@ -1,21 +1,19 @@
-﻿
-using UnitsOfMeasure.Distances;
+﻿using System.Numerics;
 
 namespace UnitsOfMeasure.Areas
 {
     public class SquareDeciMeter : Area
     {
-        public SquareDeciMeter() : this(1)
-        {
-        }
+        public SquareDeciMeter() { }
 
-        public SquareDeciMeter(double value) : base(value)
-        {
-        }
+        public SquareDeciMeter(double value) : base(value) { }
 
-        public override string SiUnit => "dm²";
 
-        internal override double FactorToBaseUnit => 0.01;
+        public SquareDeciMeter(BigFloat value) : base(value) { }
+
+        public override string Unit => "dm²";
+
+        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(0.01);
     }
 
 }

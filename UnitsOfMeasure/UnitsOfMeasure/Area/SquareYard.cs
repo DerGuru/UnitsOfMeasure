@@ -1,21 +1,18 @@
-﻿
-using UnitsOfMeasure.Distances;
+﻿using System.Numerics;
 
 namespace UnitsOfMeasure.Areas
 {
     public class SquareYard : Area
     {
-        public SquareYard() : this(1)
-        {
-        }
+        public SquareYard() { }
 
-        public SquareYard(double value) : base(value)
-        {
-        }
+        public SquareYard(double value) : base(value) { }
 
-        public override string SiUnit => "yd²";
+        public SquareYard(BigFloat value) : base(value) { }
 
-        internal override double FactorToBaseUnit => 0.83612736;
+        public override string Unit => "yd²";
+
+        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(83612736, 100000000);
     }
 
 }

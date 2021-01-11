@@ -1,18 +1,18 @@
-﻿using UnitsOfMeasure.Distances;
+﻿using System.Numerics;
 
 namespace UnitsOfMeasure.Areas
 {
     public class SquareCentiMeter : Area
     {
-        public SquareCentiMeter() : this (1)
-        {
-        }
+        public SquareCentiMeter() { }
 
         public SquareCentiMeter(double value) : base(value) { }
 
-        public override string SiUnit => "cm²";
+        public SquareCentiMeter(BigFloat value) : base(value) { }
 
-        internal override double FactorToBaseUnit { get; } = 0.0001;
+        public override string Unit => "cm²";
+
+        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(0.0001);
 
     }
 }

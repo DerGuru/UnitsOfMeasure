@@ -1,20 +1,16 @@
 ﻿
+using System.Numerics;
 using UnitsOfMeasure.Distances;
 
 namespace UnitsOfMeasure
 {
     public abstract class Distance : UnitOfMeasure<Distance>
     {
-        protected Distance() : this(1) { } 
+        protected Distance() { }
         protected Distance(double value) : base(value) { }
-        
-        public static Velocity operator / (Distance d, Time t)
-        {
-            return new Velocity(d,t);
-        }
-        public static Area operator * (Distance a, Distance b)
-        {
-            return new Areas.SquareMeter(a.Convert<Meter>().Value * b.Convert<Meter>().Value);
-        }
+        protected Distance(BigFloat value) : base(value) { }
+
+        public static DivisionCompound<Velocity, Distance, Time> operator /(Distance d, Time t) => new DivisionCompound<Velocity, Distance, Time>(d, t);
+        public static MultiplicationCompound<Area, Distance, Distance> operator * (Distance a, Distance b) => new MultiplicationCompound<Area, Distance, Distance>(a, b);
     }
 }

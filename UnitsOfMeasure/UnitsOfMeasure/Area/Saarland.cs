@@ -1,21 +1,20 @@
-﻿using UnitsOfMeasure.Distances;
+﻿using System.Numerics;
 
 namespace UnitsOfMeasure.Areas
 {
     public class Saarland : Area
     {
-        public Saarland() : this (1)
-        {
-        }
+        public Saarland() { }
 
-        public Saarland(double value) : base(value)
-        {
-            
-        }
+        public Saarland(double value) : base(value) { }
 
-        public override string SiUnit => "Saarla(e)nd(er)";
 
-        internal override double FactorToBaseUnit => 2570000000;
+        public Saarland(BigFloat value) : base(value) { }
+
+
+        public override string Unit => "Saarla(e)nd(er)";
+
+        public override BigFloat FactorToBaseUnit {get;} = new BigFloat(2570000000);
     }
 
 }

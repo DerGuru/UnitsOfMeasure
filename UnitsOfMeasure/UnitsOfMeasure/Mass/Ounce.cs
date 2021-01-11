@@ -1,17 +1,17 @@
-﻿namespace UnitsOfMeasure.Masses
+﻿using System.Numerics;
+
+namespace UnitsOfMeasure.Masses
 {
     public class Ounce : Mass
     {
-        public Ounce()
-        {
-        }
+        public Ounce() { }
 
-        public Ounce(double value) : base(value)
-        {
-        }
+        public Ounce(double value) : base(value) { }
 
-        public override string SiUnit => "oz";
+        public Ounce(BigFloat value) : base(value) { }
 
-        internal override double FactorToBaseUnit => 28.349523125;
+        public override string Unit => "oz";
+
+        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(28.349523125);
     }
 }

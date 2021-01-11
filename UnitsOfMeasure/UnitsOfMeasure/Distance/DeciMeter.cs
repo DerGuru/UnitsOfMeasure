@@ -1,11 +1,16 @@
-﻿namespace UnitsOfMeasure.Distances
+﻿using System.Numerics;
+
+namespace UnitsOfMeasure.Distances
 {
     public class DeciMeter : Distance
     {
         public DeciMeter() { }
 
         public DeciMeter(double value) : base(value) { }
-        public override string SiUnit => "dm";
-        internal override double FactorToBaseUnit => 0.1;
+
+        public DeciMeter(BigFloat value) : base(value) { }
+
+        public override string Unit => "dm";
+        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(1,10);
     }
 }

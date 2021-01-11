@@ -1,17 +1,17 @@
-﻿namespace UnitsOfMeasure.Masses
+﻿using System.Numerics;
+
+namespace UnitsOfMeasure.Masses
 {
     public class Moon : Mass
     {
-        public Moon()
-        {
-        }
+        public Moon() { }
 
-        public Moon(double value) : base(value)
-        {
-        }
+        public Moon(double value) : base(value) { }
 
-        public override string SiUnit => "Moon(s)";
+        public Moon(BigFloat value) : base(value) { }
 
-        internal override double FactorToBaseUnit => 73480000000000000000000000.0;
+        public override string Unit => "Moon(s)";
+
+        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(73480000000000000000000000.0);
     }
 }

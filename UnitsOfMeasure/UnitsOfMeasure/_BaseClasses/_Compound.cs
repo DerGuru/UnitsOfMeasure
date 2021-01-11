@@ -1,27 +1,23 @@
-﻿namespace UnitsOfMeasure
+﻿using System.Numerics;
+
+namespace UnitsOfMeasure
 {
     public abstract class Compound<UnitT, Source1T, Source2T> : UnitOfMeasure<UnitT>
         where UnitT : UnitOfMeasure<UnitT>
         where Source1T : UnitOfMeasure<Source1T>
         where Source2T : UnitOfMeasure<Source2T>
     {
-        protected double factorToBaseUnit;
-        internal override double FactorToBaseUnit => factorToBaseUnit;
+        protected BigFloat factorToBaseUnit;
+        public override BigFloat FactorToBaseUnit => factorToBaseUnit;
 
-        protected string siUnit;
-        public override string SiUnit => siUnit;
-        internal override void SetSiUnit(string unit)
+        protected string unit;
+        public override string Unit => unit;
+        public override void SetUnit(string unit)
         {
-            siUnit = unit;
+            this.unit = unit;
         }
-        public override T Convert<T>(T target) 
-        {
-            var t = target.Clone() as T;
-            t.SetSiUnit(target.SiUnit);
-            t.Value = (target?.FactorToBaseUnit.Equals(FactorToBaseUnit) ?? false)
-                ? Value
-                : Value * FactorToBaseUnit / target.FactorToBaseUnit;
-            return t;
-        }
+        
     }
 }
+
+

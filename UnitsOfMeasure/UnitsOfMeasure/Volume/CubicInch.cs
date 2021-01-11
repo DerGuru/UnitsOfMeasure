@@ -1,18 +1,16 @@
-﻿
-using UnitsOfMeasure.Distances;
+﻿using System.Numerics;
 
 namespace UnitsOfMeasure.Volumes
 {
-    public class CubicInch : Volume<Inch>
+    public class CubicInch : Volume
     {
-        public CubicInch()
-        {
-        }
+        public CubicInch() { }
 
-        public CubicInch(double value) : base(value)
-        {
-        }
+        public CubicInch(double value) : base(value) { }
 
-        public override string SiUnit => "in³";
+        public CubicInch(BigFloat value) : base(value) { }
+
+        public override string Unit => "in³";
+        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(0.000016387064);
     }
 }

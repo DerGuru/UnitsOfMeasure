@@ -1,15 +1,17 @@
-﻿using UnitsOfMeasure.Distances;
-using UnitsOfMeasure.Times;
+﻿using System.Numerics;
 
 namespace UnitsOfMeasure.Velocities
 {
     public class KiloMetersPerHour : Velocity
     {
-        public KiloMetersPerHour() : this(1)
-        {
-        }
-        public KiloMetersPerHour(double value) : base(new KiloMeter(value), new Hour())
-        {
-        }
+        public KiloMetersPerHour() { }
+
+        public KiloMetersPerHour(double value) : base(value) { }
+
+        public KiloMetersPerHour(BigFloat value) : base(value) { }
+
+        public override string Unit => "km/h";
+
+        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(10, 36);
     }
 }

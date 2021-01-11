@@ -1,8 +1,8 @@
 ﻿namespace UnitsOfMeasure
 {
 
-    public abstract class MultiplicationCompound<UnitT, Source1T, Source2T> : Compound<UnitT, Source1T, Source2T>
-        where UnitT : MultiplicationCompound<UnitT, Source1T, Source2T>
+    public class MultiplicationCompound<UnitT, Source1T, Source2T> : Compound<UnitT, Source1T, Source2T>
+        where UnitT : UnitOfMeasure<UnitT>
         where Source1T : UnitOfMeasure<Source1T>
         where Source2T : UnitOfMeasure<Source2T>
     {
@@ -12,7 +12,7 @@
         {
             Value = a.Value * b.Value;
             factorToBaseUnit = a.FactorToBaseUnit * b.FactorToBaseUnit;
-            siUnit = $"{a.SiUnit}{b.SiUnit}";
+            unit = $"{a.Unit}{b.Unit}";
         }
     }
 }

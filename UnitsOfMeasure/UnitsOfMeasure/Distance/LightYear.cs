@@ -1,13 +1,17 @@
-﻿namespace UnitsOfMeasure.Distances
+﻿using System.Numerics;
+
+namespace UnitsOfMeasure.Distances
 {
     public class LightYear : Distance
     {
-        public LightYear() {}
+        public LightYear() { }
 
         public LightYear(double value) : base(value) { }
 
-        public override string SiUnit => "ly";
+        public LightYear(BigFloat value) : base(value) { }
 
-        internal override double FactorToBaseUnit => 9460730472580800;
+        public override string Unit => "ly";
+
+        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(9460730472580800);
     }
 }

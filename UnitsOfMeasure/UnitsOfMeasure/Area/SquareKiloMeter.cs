@@ -1,4 +1,4 @@
-﻿
+﻿using System.Numerics;
 using UnitsOfMeasure.Distances;
 
 namespace UnitsOfMeasure.Areas
@@ -7,13 +7,13 @@ namespace UnitsOfMeasure.Areas
     {
         public SquareKiloMeter() { }
 
-        public SquareKiloMeter(double value) : base(value)
-        {
-        }
+        public SquareKiloMeter(double value) : base(value) { }
 
-        public override string SiUnit => "km²";
+        public SquareKiloMeter(BigFloat value) : base(value) { }
 
-        internal override double FactorToBaseUnit => 1000000;
+        public override string Unit => "km²";
+
+        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(1000000);
     }
 
 }

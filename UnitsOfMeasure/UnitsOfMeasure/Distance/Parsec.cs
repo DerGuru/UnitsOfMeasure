@@ -1,4 +1,6 @@
-﻿namespace UnitsOfMeasure.Distances
+﻿using System.Numerics;
+
+namespace UnitsOfMeasure.Distances
 {
     public class Parsec : Distance
     {
@@ -6,8 +8,10 @@
 
         public Parsec(double value) : base(value) { }
 
-        public override string SiUnit => "pc";
+        public Parsec(BigFloat value) : base(value) { }
 
-        internal override double FactorToBaseUnit => 30856775814913673;
+        public override string Unit => "pc";
+
+        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(30856775814913673,1);
     }
 }

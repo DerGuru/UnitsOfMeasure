@@ -1,27 +1,31 @@
 ﻿using System;
+using System.Numerics;
 
 namespace UnitsOfMeasure
 {
-    public abstract class UnitOfMeasure<UnitT> : IEquatable<UnitT>, IComparable<UnitT> where UnitT : UnitOfMeasure<UnitT>
+    public abstract class UnitOfMeasure<UnitT> : IEquatable<UnitOfMeasure<UnitT>>, IComparable<UnitOfMeasure<UnitT>> where UnitT : UnitOfMeasure<UnitT>
     {
-        internal abstract double FactorToBaseUnit { get; }
+        public abstract BigFloat FactorToBaseUnit { get; }
         protected UnitOfMeasure() { }
-        protected UnitOfMeasure(double value)
+        protected UnitOfMeasure(double value) :this (new BigFloat(value)) { }
+
+        protected UnitOfMeasure(BigFloat value)
         {
             Value = value;
-            privateHashCode = new Lazy<int>(() => SiUnit.GetHashCode() ^ Value.GetHashCode());
+            privateHashCode = new Lazy<int>(() => Unit.GetHashCode() ^ Value.GetHashCode());
         }
-        public virtual double Value { get; set; }
-        public abstract string SiUnit { get; }
-        internal virtual void SetSiUnit(string unit) { }
 
-        public override string ToString() => $"{Value} {SiUnit}";
+        public virtual BigFloat Value { get; set; }
+        public abstract string Unit { get; }
+        public virtual void SetUnit(string unit) { }
 
-        public virtual int CompareTo(UnitT other) => -other?.Convert(this as UnitT).Value.CompareTo(Value) ?? 1; //something is always bigger than nothing
+        public override string ToString() => $"{Value} {Unit}";
 
-        public virtual bool Equals(UnitT other) => other?.Convert(this as UnitT).Value.Equals(Value) ?? false;
+        public virtual int CompareTo(UnitOfMeasure<UnitT> other) => -other?.Convert(this).Value.CompareTo(Value) ?? 1; //something is always bigger than nothing
 
-        public override bool Equals(object obj) => Equals(obj as UnitT);
+        public virtual bool Equals(UnitOfMeasure<UnitT> other) => other?.Convert(this).Value.Equals(Value) ?? false;
+
+        public override bool Equals(object obj) => Equals(obj as UnitOfMeasure<UnitT>);
 
         private Lazy<int> privateHashCode;
 
@@ -37,56 +41,51 @@ namespace UnitsOfMeasure
         public static bool operator !=(UnitOfMeasure<UnitT> a, UnitOfMeasure<UnitT> b)=> !a.Equals(b);
 
        
-        public static UnitT operator +(UnitOfMeasure<UnitT> a, UnitOfMeasure<UnitT> b)  => a.Add(b);
-        public static UnitT operator -(UnitOfMeasure<UnitT> a, UnitOfMeasure<UnitT> b) => a.Subtract(b);
-        public virtual UnitT Add(UnitT other)
+        public static UnitOfMeasure<UnitT> operator +(UnitOfMeasure<UnitT> a, UnitOfMeasure<UnitT> b)  => a.Add(b);
+        public static UnitOfMeasure<UnitT> operator -(UnitOfMeasure<UnitT> a, UnitOfMeasure<UnitT> b) => a.Subtract(b);
+        public virtual UnitOfMeasure<UnitT> Add(UnitOfMeasure<UnitT> other)
         {
-            var t = MemberwiseClone() as UnitT;
+            var t = MemberwiseClone() as UnitOfMeasure<UnitT>;
             t.Value = Value + other.Convert(t).Value;
             return t;
         }
 
-        public virtual UnitT Subtract(UnitT other)
+        public virtual UnitOfMeasure<UnitT> Subtract(UnitOfMeasure<UnitT> other)
         {
-            var t = MemberwiseClone() as UnitT;
+            var t = MemberwiseClone() as UnitOfMeasure<UnitT>;
             t.Value = Value - other.Convert(t).Value;
             return t;
         }
 
-        public static UnitT operator *(double a, UnitOfMeasure<UnitT> b) => b.ScalarMultiply(a);
-        public static UnitT operator *(UnitOfMeasure<UnitT> a, double b) => a.ScalarMultiply(b);
+        public static UnitOfMeasure<UnitT> operator *(double a, UnitOfMeasure<UnitT> b) => b.ScalarMultiply(a);
+        public static UnitOfMeasure<UnitT> operator *(UnitOfMeasure<UnitT> a, double b) => a.ScalarMultiply(b);
 
-        public static UnitT operator /(UnitOfMeasure<UnitT> a, double b) => a.ScalarDiv (b);
+        public static UnitOfMeasure<UnitT> operator /(UnitOfMeasure<UnitT> a, double b) => a.ScalarDiv (b);
 
-        private UnitT ScalarMultiply(double b)
+        private UnitOfMeasure<UnitT> ScalarMultiply(double b)
         {
-            var t = MemberwiseClone() as UnitT;
+            var t = MemberwiseClone() as UnitOfMeasure<UnitT>;
             t.Value = Value * b;
             return t;
         }
 
-        private UnitT ScalarDiv(double b)
+        private UnitOfMeasure<UnitT> ScalarDiv(double b)
         {
-            var t = MemberwiseClone() as UnitT;
+            var t = MemberwiseClone() as UnitOfMeasure<UnitT>;
             t.Value = Value / b;
             return t;
         }
 
-        public T Convert<T>() where T : UnitT, new() => Convert<T>(new T());
-        public virtual T Convert<T>(T target) where T : UnitT
-        {
-            if (this is T) return this as T;
 
+        public T Convert<T>() where T : UnitOfMeasure<UnitT>, new() => Convert(new T());
+        public T Convert<T>(T target) where T : UnitOfMeasure<UnitT>
+        {
             var t = target.MemberwiseClone() as T;
-            t.Value = Value * FactorToBaseUnit / target.FactorToBaseUnit;
+            t.SetUnit(target.Unit);
+            t.Value = (target?.FactorToBaseUnit.Equals(FactorToBaseUnit) ?? false)
+                ? Value
+                : Value * FactorToBaseUnit / target.FactorToBaseUnit ;
             return t;
         }
-
-        public UnitT Clone()
-        {
-            return MemberwiseClone() as UnitT;
-        }
-
-        public static implicit operator UnitT(UnitOfMeasure<UnitT> same) => same as UnitT;
     }
 }

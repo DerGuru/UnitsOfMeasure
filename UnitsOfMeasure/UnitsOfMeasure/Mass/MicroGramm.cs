@@ -1,17 +1,17 @@
-﻿namespace UnitsOfMeasure.Masses
+﻿using System.Numerics;
+
+namespace UnitsOfMeasure.Masses
 {
     public class MicroGramm : Mass
     {
-        public MicroGramm()
-        {
-        }
+        public MicroGramm() { }
 
-        public MicroGramm(double value) : base(value)
-        {
-        }
+        public MicroGramm(double value) : base(value) { }
 
-        public override string SiUnit => "μg";
+        public MicroGramm(BigFloat value) : base(value) { }
 
-        internal override double FactorToBaseUnit => 0.000001;
+        public override string Unit => "μg";
+
+        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(0.000001);
     }
 }

@@ -1,20 +1,18 @@
-﻿using UnitsOfMeasure.Distances;
+﻿using System.Numerics;
 
 namespace UnitsOfMeasure.Areas
 {
     public class Ar : Area
     {
-        public Ar() : this(1)
-        {
-        }
+        public Ar() { }
 
-        public Ar(double value) : base(value)
-        {
-        }
+        public Ar(double value) : base(value) { }
 
-        public override string SiUnit => "a";
+        public Ar(BigFloat value) : base(value) { }
 
-        internal override double FactorToBaseUnit { get; } = 100;
+        public override string Unit => "a";
+
+        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(100);
     }
 
 }

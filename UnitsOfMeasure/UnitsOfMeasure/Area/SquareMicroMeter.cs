@@ -1,21 +1,18 @@
-﻿
-using UnitsOfMeasure.Distances;
+﻿using System.Numerics;
 
 namespace UnitsOfMeasure.Areas
 {
     public class SquareMicroMeter : Area
     {
-        public SquareMicroMeter()
-        {
-        }
+        public SquareMicroMeter() { }
 
-        public SquareMicroMeter(double value) : base(value)
-        {
-        }
+        public SquareMicroMeter(double value) : base(value) { }
 
-        public override string SiUnit => "μm²";
+        public SquareMicroMeter(BigFloat value) : base(value) { }
 
-        internal override double FactorToBaseUnit { get; } = 0.000000000001;
+        public override string Unit => "μm²";
+
+        public override BigFloat FactorToBaseUnit { get; } = new BigFloat( 1, 1000000000000);
     }
 
 }

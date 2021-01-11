@@ -1,17 +1,17 @@
-﻿namespace UnitsOfMeasure.Masses
+﻿using System.Numerics;
+
+namespace UnitsOfMeasure.Masses
 {
     public class HundredWeight : Mass
     {
-        public HundredWeight()
-        {
-        }
+        public HundredWeight() { }
 
-        public HundredWeight(double value) : base(value)
-        {
-        }
+        public HundredWeight(double value) : base(value) { }
 
-        public override string SiUnit => "cwt";
+        public HundredWeight(BigFloat value) : base(value) { }
 
-        internal override double FactorToBaseUnit => 50802.34544;
+        public override string Unit => "cwt";
+
+        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(50802.34544);
     }
 }

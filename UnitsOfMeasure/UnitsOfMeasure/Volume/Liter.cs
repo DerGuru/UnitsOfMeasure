@@ -1,20 +1,17 @@
-﻿
-using UnitsOfMeasure.Distances;
+﻿using System.Numerics;
 
 namespace UnitsOfMeasure.Volumes
 {
-    public class Liter : Volume<DeciMeter>
+    public class Liter : Volume
     {
-        public Liter()
-        {
-        }
+        public Liter() { }
 
-        public Liter(double value) : base(value)
-        {
-        }
+        public Liter(double value) : base(value) { }
 
-        public override string SiUnit => "l";
+        public Liter(BigFloat value) : base(value) { }
 
-        internal override double FactorToBaseUnit => 0.001;
+        public override string Unit => "l";
+
+        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(0.001);
     }
 }

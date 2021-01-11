@@ -1,20 +1,17 @@
-﻿
-using UnitsOfMeasure.Distances;
+﻿using System.Numerics;
 
 namespace UnitsOfMeasure.Volumes
 {
-    public class HectoLiter : Volume<Meter>
+    public class HectoLiter : Volume
     {
-        public HectoLiter() : this (1)
-        {
-        }
+        public HectoLiter() {}
 
-        public HectoLiter(double value) : base(value)
-        {
-        }
+        public HectoLiter(double value) : base(value){}
 
-        public override string SiUnit => "hl";
+        public HectoLiter(BigFloat value) : base(value){}
 
-        internal override double FactorToBaseUnit { get; } = 0.1;
+        public override string Unit => "hl";
+
+        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(0.1);
     }
 }

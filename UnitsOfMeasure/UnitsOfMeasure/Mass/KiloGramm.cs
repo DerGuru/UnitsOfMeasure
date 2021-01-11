@@ -1,17 +1,17 @@
-﻿namespace UnitsOfMeasure.Masses
+﻿using System.Numerics;
+
+namespace UnitsOfMeasure.Masses
 {
     public class KiloGramm : Mass
     {
-        public KiloGramm()
-        {
-        }
+        public KiloGramm() { }
 
-        public KiloGramm(double value) : base(value)
-        {
-        }
+        public KiloGramm(double value) : base(value) { }
 
-        public override string SiUnit => "kg";
+        public KiloGramm(BigFloat value) : base(value) { }
 
-        internal override double FactorToBaseUnit => 1000;
+        public override string Unit => "kg";
+
+        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(1000);
     }
 }

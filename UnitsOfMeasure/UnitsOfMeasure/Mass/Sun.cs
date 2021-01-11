@@ -1,17 +1,17 @@
-﻿namespace UnitsOfMeasure.Masses
+﻿using System.Numerics;
+
+namespace UnitsOfMeasure.Masses
 {
     public class Sun : Mass
     {
-        public Sun()
-        {
-        }
+        public Sun(){}
 
-        public Sun(double value) : base(value)
-        {
-        }
+        public Sun(double value) : base(value){}
 
-        public override string SiUnit => "Sun(s)";
+        public Sun(BigFloat value) : base(value){}
 
-        internal override double FactorToBaseUnit => 198910000000000000000000000000000.0;
+        public override string Unit => "Sun(s)";
+
+        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(198910000000000000000000000000000.0);
     }
 }

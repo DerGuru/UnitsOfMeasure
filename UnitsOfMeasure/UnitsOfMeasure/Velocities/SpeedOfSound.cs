@@ -1,16 +1,17 @@
-﻿using UnitsOfMeasure.Distances;
-using UnitsOfMeasure.Times;
+﻿using System.Numerics;
 
 namespace UnitsOfMeasure.Velocities
 {
     public class SpeedOfSound : Velocity
     {
-        public SpeedOfSound() : this(1)
-        {
-        }
+        public SpeedOfSound(){}
 
-        public SpeedOfSound(double value) : base(new Meter(value * 343), new Second())
-        {
-        }
+        public SpeedOfSound(double value) : base(value){}
+
+        public SpeedOfSound(BigFloat value) : base(value){}
+
+        public override string Unit => "Mach";
+
+        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(343);
     }
 }

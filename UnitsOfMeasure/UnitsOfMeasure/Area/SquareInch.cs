@@ -1,19 +1,18 @@
-﻿
-using UnitsOfMeasure.Distances;
+﻿using System.Numerics;
 
 namespace UnitsOfMeasure.Areas
 {
     public class SquareInch : Area
     {
-        public SquareInch() : this (1) { }
+        public SquareInch() { }
 
-        public SquareInch(double value) : base(value)
-        {
-        }
+        public SquareInch(double value) : base(value) { }
 
-        public override string SiUnit => "in²";
+        public SquareInch(BigFloat value) : base(value) { }
 
-        internal override double FactorToBaseUnit { get; } = 0.00064516;
+        public override string Unit => "in²";
+
+        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(64516, 100000000);
     }
 
 }

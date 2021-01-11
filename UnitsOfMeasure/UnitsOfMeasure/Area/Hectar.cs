@@ -1,18 +1,17 @@
-﻿using UnitsOfMeasure.Distances;
+﻿using System.Numerics;
 
 namespace UnitsOfMeasure.Areas
 {
     public class Hectar : Area
     {
-        public Hectar() : this(1) { }
-        public Hectar(double value) : base(value)
-        {
-            
-        }
+        public Hectar() { }
+        public Hectar(double value) : base(value) { }
 
-        public override string SiUnit => "ha";
+        public Hectar(BigFloat value) : base(value) { }
 
-        internal override double FactorToBaseUnit { get; } = 10000;
+        public override string Unit => "ha";
+
+        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(10000);
     }
 
 }

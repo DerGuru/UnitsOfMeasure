@@ -1,19 +1,17 @@
-﻿
-using UnitsOfMeasure.Distances;
+﻿using System.Numerics;
 
 namespace UnitsOfMeasure.Volumes
 {
-    public class CubicMilliMeter : Volume<MilliMeter>
+    public class CubicMilliMeter : Volume
     {
-        public CubicMilliMeter()
-        {
-        }
+        public CubicMilliMeter() { }
 
-        public CubicMilliMeter(double value) : base(value)
-        {
-        }
+        public CubicMilliMeter(double value) : base(value) { }
 
-        public override string SiUnit => "mm³";
+        public CubicMilliMeter(BigFloat value) : base(value) { }
 
+        public override string Unit => "mm³";
+
+        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(0.000000001);
     }
 }

@@ -1,21 +1,18 @@
-﻿using UnitsOfMeasure.Distances;
+﻿using System.Numerics;
 
 namespace UnitsOfMeasure.Areas
 {
     public class Earth : Area
     {
-        public Earth() : this(1)
-        {
-        }
+        public Earth() { }
 
-        public Earth(double value) : base(value)
-        {
-            
-        }
+        public Earth(double value) : base(value) { }
 
-        public override string SiUnit => "Earth(s)";
+        public Earth(BigFloat value) : base(value) { }
 
-        internal override double FactorToBaseUnit => 510000000000000;
+        public override string Unit => "Earth(s)";
+
+        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(510000000000000);
     }
 
 }

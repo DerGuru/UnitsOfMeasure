@@ -1,13 +1,17 @@
-﻿namespace UnitsOfMeasure.Distances
+﻿using System.Numerics;
+
+namespace UnitsOfMeasure.Distances
 {
     public class AstronomicUnit : Distance
     {
-        public AstronomicUnit(){ }
+        public AstronomicUnit() { }
 
         public AstronomicUnit(double value) : base(value) { }
 
-        public override string SiUnit => "au";
+        public AstronomicUnit(BigFloat value) : base(value) { }
 
-        internal override double FactorToBaseUnit => 149597870700;
+        public override string Unit => "au";
+
+        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(149597870700,1);
     }
 }

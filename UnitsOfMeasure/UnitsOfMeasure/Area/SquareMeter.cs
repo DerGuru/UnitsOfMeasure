@@ -1,20 +1,17 @@
-﻿
-using UnitsOfMeasure.Distances;
+﻿using System.Numerics;
 
 namespace UnitsOfMeasure.Areas
 {
     public class SquareMeter : Area
     {
-        public SquareMeter()
-        {
-        }
+        public SquareMeter() { }
 
-        public SquareMeter(double value) : base(value)
-        {
-        }
+        public SquareMeter(double value) : base(value) { }
 
-        public override string SiUnit => "m²";
-        internal override double FactorToBaseUnit => 1;
+        public SquareMeter(BigFloat value) : base(value) { }
+
+        public override string Unit => "m²";
+        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(1);
 
     }
 

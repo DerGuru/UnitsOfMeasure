@@ -1,15 +1,18 @@
-﻿
-using UnitsOfMeasure.Distances;
+﻿using System.Numerics;
 
 namespace UnitsOfMeasure.Areas
 {
     public class SquareFoot : Area
     {
-       
+        public SquareFoot() { }
 
-        public override string SiUnit => "ft²";
+        public SquareFoot(double value) : base(value) { }
 
-        internal override double FactorToBaseUnit => 0.092903;
+        public SquareFoot(BigFloat value) : base(value) { }
+
+        public override string Unit => "ft²";
+
+        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(92903,1000000);
     }
 
 }

@@ -1,13 +1,17 @@
-﻿namespace UnitsOfMeasure.Distances
+﻿using System.Numerics;
+
+namespace UnitsOfMeasure.Distances
 {
     public class Meter : Distance
     {
         public Meter() { }
 
-        public Meter(double value) : base(value) { }
+        public Meter(double value) : base (value) { }
 
-        public override string SiUnit => "m";
+        public Meter(BigFloat value) : base(value) { }
 
-        internal override double FactorToBaseUnit => 1;
+        public override string Unit => "m";
+
+        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(1);
     }
 }

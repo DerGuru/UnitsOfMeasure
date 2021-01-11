@@ -1,19 +1,17 @@
-﻿using UnitsOfMeasure.Distances;
+﻿using System.Numerics;
 
 namespace UnitsOfMeasure.Volumes
 {
-    public class OlympicSwimmingPool : Volume<Meter>
+    public class OlympicSwimmingPool : Volume
     {
-        public OlympicSwimmingPool() 
-        {
-        }
+        public OlympicSwimmingPool() { }
 
-        public OlympicSwimmingPool(double value) : base(value)
-        {
-        }
+        public OlympicSwimmingPool(double value) : base(value) { }
 
-        public override string SiUnit => "Olympic Swimming Pool(s)";
+        public OlympicSwimmingPool(BigFloat value) : base(value) { }
 
-        internal override double FactorToBaseUnit => 2500;
+        public override string Unit => "Olympic Swimming Pool(s)";
+
+        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(2500);
     }
 }

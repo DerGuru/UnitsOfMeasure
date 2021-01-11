@@ -1,4 +1,6 @@
-﻿namespace UnitsOfMeasure.Distances
+﻿using System.Numerics;
+
+namespace UnitsOfMeasure.Distances
 {
     public class Inch : Distance
     {
@@ -6,8 +8,10 @@
 
         public Inch(double value) : base(value) { }
 
-        public override string SiUnit => "\"";
+        public Inch(BigFloat value) : base(value) { }
 
-        internal override double FactorToBaseUnit => 0.0254;
+        public override string Unit => "\"";
+
+        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(254,10000);
     }
 }

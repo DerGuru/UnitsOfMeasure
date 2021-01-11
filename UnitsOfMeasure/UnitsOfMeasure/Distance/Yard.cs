@@ -1,4 +1,6 @@
-﻿namespace UnitsOfMeasure.Distances
+﻿using System.Numerics;
+
+namespace UnitsOfMeasure.Distances
 {
     public class Yard : Distance
     {
@@ -6,8 +8,10 @@
 
         public Yard(double value) : base(value) { }
 
-        public override string SiUnit => "yd";
+        public Yard(BigFloat value) : base(value) { }
 
-        internal override double FactorToBaseUnit => 0.9144;
+        public override string Unit => "yd";
+
+        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(9144,10000);
     }
 }

@@ -1,17 +1,17 @@
-﻿namespace UnitsOfMeasure.Masses
+﻿using System.Numerics;
+
+namespace UnitsOfMeasure.Masses
 {
     public class Gramm : Mass
     {
-        public Gramm()
-        {
-        }
+        public Gramm() { }
 
-        public Gramm(double value) : base(value)
-        {
-        }
+        public Gramm(double value) : base(value) { }
 
-        public override string SiUnit => "g";
+        public Gramm(BigFloat value) : base(value) { }
 
-        internal override double FactorToBaseUnit => 1;
+        public override string Unit => "g";
+
+        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(1);
     }
 }

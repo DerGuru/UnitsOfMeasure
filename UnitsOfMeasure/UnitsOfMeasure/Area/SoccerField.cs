@@ -1,20 +1,17 @@
-﻿using UnitsOfMeasure.Distances;
+﻿using System.Numerics;
 
 namespace UnitsOfMeasure.Areas
 {
     public class SoccerField : Area
     {
-        public SoccerField() : this(1)
-        {
-        }
+        public SoccerField() { }
 
-        public SoccerField(double value) : base(value)
-        {
-        }
+        public SoccerField(double value) : base(value) { }
 
-        public override string SiUnit => "SoccerField(s)";
+        public SoccerField(BigFloat value) : base(value) { }
 
-        internal override double FactorToBaseUnit => 7140;
+        public override string Unit => "SoccerField(s)";
+
+        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(7140);
     }
-
 }

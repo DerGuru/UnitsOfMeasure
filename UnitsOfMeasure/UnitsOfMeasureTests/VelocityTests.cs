@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Numerics;
 using UnitsOfMeasure;
 using UnitsOfMeasure.Distances;
 using UnitsOfMeasure.Times;
@@ -11,28 +12,17 @@ namespace UnitsOfMeasureTests
     public class VelocityTests
     {
         [TestMethod]
-        public void MetersPerScond()
-        {
-            var dm = new Meter();
-            var ts = new Second();
-            var vmps = dm / ts;
-            Assert.IsInstanceOfType(vmps, typeof(Velocity));
-            Assert.IsNotInstanceOfType(vmps, typeof(MetersPerSecond));
-
-        }
-
-        [TestMethod]
         public void ConvertVelocityToSpecialUnit()
         {
-            var vmps = new Velocity<Meter, Second>(2, 3);
+            var vmps = new Velocity<Meter, Second>(new Meter(2), new Second(3));
 
-            Assert.AreEqual(2.0 / 3, vmps.Value);
+            Assert.AreEqual(new BigFloat(2 ,3), vmps.Value);
 
             var mps = vmps.Convert<MetersPerSecond>();
             Assert.IsInstanceOfType(mps, typeof(MetersPerSecond));
             Assert.IsInstanceOfType(mps, typeof(Velocity));
 
-            Assert.AreEqual(mps.SiUnit, vmps.SiUnit);
+            Assert.AreEqual($"({mps.Unit})", vmps.Unit);
             Assert.AreEqual(mps.Value, vmps.Value);
            
         }
@@ -44,7 +34,7 @@ namespace UnitsOfMeasureTests
             var v = mps.Convert<KiloMetersPerHour>();
 
             Assert.IsInstanceOfType(v, typeof(Velocity));
-            Assert.AreEqual(7.2, Math.Round(v.Value, 1));
+            Assert.AreEqual(7.2, v.Value);
         }
     }
 

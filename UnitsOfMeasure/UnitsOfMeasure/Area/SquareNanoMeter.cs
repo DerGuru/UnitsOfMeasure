@@ -1,21 +1,18 @@
-﻿
-using UnitsOfMeasure.Distances;
+﻿using System.Numerics;
 
 namespace UnitsOfMeasure.Areas
 {
     public class SquareNanoMeter : Area
     {
-        public SquareNanoMeter()
-        {
-        }
+        public SquareNanoMeter() { }
 
-        public SquareNanoMeter(double value) : base(value)
-        {
-        }
+        public SquareNanoMeter(double value) : base(value) { }
 
-        public override string SiUnit => "nm²";
+        public SquareNanoMeter(BigFloat value) : base(value) { }
 
-        internal override double FactorToBaseUnit => 0.000000000000000001;
+        public override string Unit => "nm²";
+
+        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(1, 1000000000000000000);
     }
 
 }
