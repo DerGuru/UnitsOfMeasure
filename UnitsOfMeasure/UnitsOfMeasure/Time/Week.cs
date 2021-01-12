@@ -8,11 +8,11 @@ namespace UnitsOfMeasure.Times
 
         public Week(double value) : base(value) { }
 
-        public Week(BigFloat value) : base(value) { }
+        public Week(BigDouble value) : base(value) { }
 
         public override string Unit => "w";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(604800.0);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(6048,2);
     }
 
 }

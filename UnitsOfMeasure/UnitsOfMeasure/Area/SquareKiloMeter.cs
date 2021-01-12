@@ -9,11 +9,11 @@ namespace UnitsOfMeasure.Areas
 
         public SquareKiloMeter(double value) : base(value) { }
 
-        public SquareKiloMeter(BigFloat value) : base(value) { }
+        public SquareKiloMeter(BigDouble value) : base(value) { }
 
         public override string Unit => "km²";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(1000000);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(1, 6);
     }
 
 }

@@ -8,10 +8,10 @@ namespace UnitsOfMeasure.Distances
 
         public AstronomicUnit(double value) : base(value) { }
 
-        public AstronomicUnit(BigFloat value) : base(value) { }
+        public AstronomicUnit(BigDouble value) : base(value) { }
 
         public override string Unit => "au";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(149597870700,1);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(1495978707,2);
     }
 }

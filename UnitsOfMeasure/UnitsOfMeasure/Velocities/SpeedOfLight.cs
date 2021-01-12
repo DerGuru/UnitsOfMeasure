@@ -1,23 +1,25 @@
 ﻿using System.Numerics;
+using UnitsOfMeasure.Distances;
+using UnitsOfMeasure.Times;
 
 namespace UnitsOfMeasure.Velocities
 {
-    public class SpeedOfLight : Velocity
+    public class SpeedOfLight : Velocity<Meter,Second>
     {
         public SpeedOfLight()
         {
         }
 
-        public SpeedOfLight(double value) : base(value)
+        public SpeedOfLight(double value) : this(new BigDouble(value))
         {
         }
 
-        public SpeedOfLight(BigFloat value) : base(value)
+        public SpeedOfLight(BigDouble value) : base(value)
         {
         }
 
         public override string Unit => "c";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(299792458);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(299792458);
     }
 }

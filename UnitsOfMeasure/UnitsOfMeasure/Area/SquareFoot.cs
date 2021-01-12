@@ -1,18 +1,21 @@
-﻿using System.Numerics;
+﻿using System;
+using System.Numerics;
+using UnitsOfMeasure.Distances;
 
 namespace UnitsOfMeasure.Areas
 {
     public class SquareFoot : Area
     {
+        public static readonly BigDouble SqInches = Foot.Inches * Foot.Inches;
         public SquareFoot() { }
 
         public SquareFoot(double value) : base(value) { }
 
-        public SquareFoot(BigFloat value) : base(value) { }
+        public SquareFoot(BigDouble value) : base(value) { }
 
         public override string Unit => "ft²";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(92903,1000000);
+        public override BigDouble FactorToBaseUnit { get; set; } = SquareInch.SquareInchesPerSquareMeter * SqInches;
     }
 
 }

@@ -1,18 +1,21 @@
 ﻿using System.Numerics;
+using UnitsOfMeasure.Distances;
 
 namespace UnitsOfMeasure.Areas
 {
     public class SquareInch : Area
     {
+        public static readonly BigDouble SquareInchesPerSquareMeter = Inch.InchesPerMeter * Inch.InchesPerMeter;
         public SquareInch() { }
 
         public SquareInch(double value) : base(value) { }
 
-        public SquareInch(BigFloat value) : base(value) { }
+        public SquareInch(BigDouble value) : base(value) { }
 
         public override string Unit => "in²";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(64516, 100000000);
+        public override BigDouble FactorToBaseUnit { get; set; } = SquareInchesPerSquareMeter;
+        
     }
 
 }

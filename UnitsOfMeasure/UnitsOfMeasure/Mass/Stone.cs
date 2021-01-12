@@ -8,10 +8,10 @@ namespace UnitsOfMeasure.Masses
 
         public Stone(double value) : base(value) { }
 
-        public Stone(BigFloat value) : base(value) { }
+        public Stone(BigDouble value) : base(value) { }
 
         public override string Unit => "st";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(6350.293180);
+        public override BigDouble FactorToBaseUnit { get; set; } = new Pound().FactorToBaseUnit * 14;
     }
 }

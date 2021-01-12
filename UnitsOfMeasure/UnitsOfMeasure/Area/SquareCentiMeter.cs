@@ -1,4 +1,5 @@
 ﻿using System.Numerics;
+using UnitsOfMeasure.Distances;
 
 namespace UnitsOfMeasure.Areas
 {
@@ -8,11 +9,11 @@ namespace UnitsOfMeasure.Areas
 
         public SquareCentiMeter(double value) : base(value) { }
 
-        public SquareCentiMeter(BigFloat value) : base(value) { }
+        public SquareCentiMeter(BigDouble value) : base(value) { }
 
         public override string Unit => "cm²";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(0.0001);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(1, -4);
 
     }
 }

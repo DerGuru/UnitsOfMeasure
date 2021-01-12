@@ -2,16 +2,15 @@
 
 namespace UnitsOfMeasure
 {
-    public abstract class Volume : UnitOfMeasure<Volume>
+    public class Volume : UnitOfMeasure<Volume>
     {
-        protected Volume() { }
+        internal Volume() { }
 
-        protected Volume(double value) : base(value) { }
+        public Volume(double value) : base(value) { }
 
-        protected Volume(BigFloat value) : base(value) { }
+        public Volume(BigDouble value) : base(value) { }
 
-        public static DivisionCompound<Area, Volume, Distance> operator /(Volume v, Distance d) => new DivisionCompound<Area, Volume, Distance>(v, d);
+        public static Area operator /(Volume v, Distance d) => Divide(v, d, new Area());
+        public static Distance operator /(Volume v, Area a) => Divide(v, a, new Distance());
     }
-
-
 }

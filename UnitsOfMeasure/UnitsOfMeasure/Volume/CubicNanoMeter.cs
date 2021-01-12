@@ -8,10 +8,10 @@ namespace UnitsOfMeasure.Volumes
 
         public CubicNanoMeter(double value) : base(value){}
 
-        public CubicNanoMeter(BigFloat value) : base(value){}
+        public CubicNanoMeter(BigDouble value) : base(value){}
 
         public override string Unit => "nm³";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(0.000000000000000000000000001);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(1, -27);
     }
 }

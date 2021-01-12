@@ -8,11 +8,11 @@ namespace UnitsOfMeasure.Areas
 
         public SquareMicroMeter(double value) : base(value) { }
 
-        public SquareMicroMeter(BigFloat value) : base(value) { }
+        public SquareMicroMeter(BigDouble value) : base(value) { }
 
         public override string Unit => "μm²";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat( 1, 1000000000000);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(1,-12);
     }
 
 }

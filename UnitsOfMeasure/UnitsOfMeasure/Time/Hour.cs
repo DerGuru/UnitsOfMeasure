@@ -8,11 +8,11 @@ namespace UnitsOfMeasure.Times
 
         public Hour(double value) : base(value) { }
 
-        public Hour(BigFloat value) : base(value) { }
+        public Hour(BigDouble value) : base(value) { }
 
         public override string Unit => "h";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(3600.0);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(36, 2);
     }
 
 }

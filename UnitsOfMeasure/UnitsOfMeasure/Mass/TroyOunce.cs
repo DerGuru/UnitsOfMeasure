@@ -4,14 +4,15 @@ namespace UnitsOfMeasure.Masses
 {
     public class TroyOunce : Mass
     {
+        private static readonly BigDouble Factor = new TroyPound().FactorToBaseUnit / 12;
         public TroyOunce() { }
 
         public TroyOunce(double value) : base(value) { }
 
-        public TroyOunce(BigFloat value) : base(value) { }
+        public TroyOunce(BigDouble value) : base(value) { }
 
         public override string Unit => "oz.tr.";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(31.1034768);
+        public override BigDouble FactorToBaseUnit { get; set; } =  Factor;
     }
 }

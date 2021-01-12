@@ -4,14 +4,15 @@ namespace UnitsOfMeasure.Masses
 {
     public class Grain : Mass
     {
+        public static readonly BigDouble GrainPerGramm = new BigDouble(6479891, -8);
         public Grain() { }
 
         public Grain(double value) : base(value) { }
 
-        public Grain(BigFloat value) : base(value) { }
+        public Grain(BigDouble value) : base(value) { }
 
         public override string Unit => "gr";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(0.06479891);
+        public override BigDouble FactorToBaseUnit { get; set; } = GrainPerGramm;
     }
 }

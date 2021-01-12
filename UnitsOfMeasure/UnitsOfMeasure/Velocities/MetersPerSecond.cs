@@ -1,17 +1,15 @@
 ﻿using System.Numerics;
+using UnitsOfMeasure.Distances;
+using UnitsOfMeasure.Times;
 
 namespace UnitsOfMeasure.Velocities
 {
-    public class MetersPerSecond : Velocity
+    public class MetersPerSecond : Velocity<Meter,Second>
     {
         public MetersPerSecond() { }
 
         public MetersPerSecond(double value) : base(value) { }
 
-        public MetersPerSecond(BigFloat value) : base(value) { }
-
-        public override string Unit => "m/s";
-
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(1);
+        public MetersPerSecond(BigDouble value) : base(value) { }
     }
 }

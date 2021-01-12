@@ -8,11 +8,11 @@ namespace UnitsOfMeasure.Times
 
         public Year(double value) : base(value) { }
 
-        public Year(BigFloat value) : base(value) { }
+        public Year(BigDouble value) : base(value) { }
 
         public override string Unit => "y";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(31536000.0);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(31536,3);
     }
 
 }

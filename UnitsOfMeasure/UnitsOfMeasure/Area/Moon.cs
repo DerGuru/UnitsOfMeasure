@@ -8,11 +8,11 @@ namespace UnitsOfMeasure.Areas
 
         public Moon(double value) : base(value) { }
 
-        public Moon(BigFloat value) : base(value) { }
+        public Moon(BigDouble value) : base(value) { }
 
         public override string Unit => "Moon(s)";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(37932330000000);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(3793233,7);
     }
 
 }

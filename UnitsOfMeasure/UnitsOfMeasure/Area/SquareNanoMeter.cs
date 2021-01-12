@@ -8,11 +8,11 @@ namespace UnitsOfMeasure.Areas
 
         public SquareNanoMeter(double value) : base(value) { }
 
-        public SquareNanoMeter(BigFloat value) : base(value) { }
+        public SquareNanoMeter(BigDouble value) : base(value) { }
 
         public override string Unit => "nm²";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(1, 1000000000000000000);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(1, -18);
     }
 
 }

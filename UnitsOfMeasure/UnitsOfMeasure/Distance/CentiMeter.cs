@@ -8,9 +8,9 @@ namespace UnitsOfMeasure.Distances
 
         public CentiMeter(double value) : base(value) { }
 
-        public CentiMeter(BigFloat value) : base(value) { }
+        public CentiMeter(BigDouble value) : base(value) { }
 
         public override string Unit => "cm";
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(1,100);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(1, -2);
     }
 }

@@ -8,10 +8,10 @@ namespace UnitsOfMeasure.Masses
 
         public NanoGramm(double value) : base(value) { }
 
-        public NanoGramm(BigFloat value) : base(value) { }
+        public NanoGramm(BigDouble value) : base(value) { }
 
         public override string Unit => "ng";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(0.000000001);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(1,-9);
     }
 }

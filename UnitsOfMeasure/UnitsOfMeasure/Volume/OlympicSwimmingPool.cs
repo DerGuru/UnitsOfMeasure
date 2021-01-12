@@ -8,10 +8,10 @@ namespace UnitsOfMeasure.Volumes
 
         public OlympicSwimmingPool(double value) : base(value) { }
 
-        public OlympicSwimmingPool(BigFloat value) : base(value) { }
+        public OlympicSwimmingPool(BigDouble value) : base(value) { }
 
         public override string Unit => "Olympic Swimming Pool(s)";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(2500);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(25,2);
     }
 }

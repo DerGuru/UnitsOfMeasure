@@ -8,10 +8,10 @@ namespace UnitsOfMeasure.Times
 
         public LeapYear(double value) : base(value) { }
 
-        public LeapYear(BigFloat value) : base(value) { }
+        public LeapYear(BigDouble value) : base(value) { }
 
         public override string Unit => "y";
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(31622400.0);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(316224,2);
     }
 
 }

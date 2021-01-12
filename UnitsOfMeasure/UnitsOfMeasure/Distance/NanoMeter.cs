@@ -8,10 +8,10 @@ namespace UnitsOfMeasure.Distances
 
         public NanoMeter(double value) : base(value) { }
 
-        public NanoMeter(BigFloat value) : base(value) { }
+        public NanoMeter(BigDouble value) : base(value) { }
 
         public override string Unit => "nm";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(1,1000000000);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(1,-9);
     }
 }

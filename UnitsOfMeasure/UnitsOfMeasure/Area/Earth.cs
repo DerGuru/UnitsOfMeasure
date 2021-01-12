@@ -8,11 +8,11 @@ namespace UnitsOfMeasure.Areas
 
         public Earth(double value) : base(value) { }
 
-        public Earth(BigFloat value) : base(value) { }
+        public Earth(BigDouble value) : base(value) { }
 
         public override string Unit => "Earth(s)";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(510000000000000);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(51,13);
     }
 
 }

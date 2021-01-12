@@ -8,11 +8,11 @@ namespace UnitsOfMeasure.Times
 
         public Minute(double value) : base(value) { }
 
-        public Minute(BigFloat value) : base(value) { }
+        public Minute(BigDouble value) : base(value) { }
 
         public override string Unit => "min";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(60.0);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(60);
     }
 
 }

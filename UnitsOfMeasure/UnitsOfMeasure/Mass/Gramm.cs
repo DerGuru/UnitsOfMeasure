@@ -8,10 +8,10 @@ namespace UnitsOfMeasure.Masses
 
         public Gramm(double value) : base(value) { }
 
-        public Gramm(BigFloat value) : base(value) { }
+        public Gramm(BigDouble value) : base(value) { }
 
         public override string Unit => "g";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(1);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(1);
     }
 }

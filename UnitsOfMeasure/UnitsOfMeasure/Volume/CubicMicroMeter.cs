@@ -8,10 +8,10 @@ namespace UnitsOfMeasure.Volumes
 
         public CubicMicroMeter(double value) : base(value){}
 
-        public CubicMicroMeter(BigFloat value) : base(value){}
+        public CubicMicroMeter(BigDouble value) : base(value){}
 
         public override string Unit => "μm³";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(0.000000000000000001);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(1, -18);
     }
 }

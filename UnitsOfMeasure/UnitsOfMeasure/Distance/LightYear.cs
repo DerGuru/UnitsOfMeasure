@@ -8,10 +8,10 @@ namespace UnitsOfMeasure.Distances
 
         public LightYear(double value) : base(value) { }
 
-        public LightYear(BigFloat value) : base(value) { }
+        public LightYear(BigDouble value) : base(value) { }
 
         public override string Unit => "ly";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(9460730472580800);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(94607304725808, 2);
     }
 }

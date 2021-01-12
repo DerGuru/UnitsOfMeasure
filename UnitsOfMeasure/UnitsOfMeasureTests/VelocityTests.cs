@@ -14,9 +14,9 @@ namespace UnitsOfMeasureTests
         [TestMethod]
         public void ConvertVelocityToSpecialUnit()
         {
-            var vmps = new Velocity<Meter, Second>(new Meter(2), new Second(3));
-
-            Assert.AreEqual(new BigFloat(2 ,3), vmps.Value);
+            var vmps = new Meter(2) / new Second(3);
+            var bd = new BigDouble(2) / new BigDouble(3);
+            Assert.AreEqual(bd, vmps.Value);
 
             var mps = vmps.Convert<MetersPerSecond>();
             Assert.IsInstanceOfType(mps, typeof(MetersPerSecond));
@@ -30,12 +30,23 @@ namespace UnitsOfMeasureTests
         [TestMethod]
         public void MetersPerSecondIntoKilometersPerHour()
         {
-            var mps = new MetersPerSecond(2);
-            var v = mps.Convert<KiloMetersPerHour>();
-
-            Assert.IsInstanceOfType(v, typeof(Velocity));
-            Assert.AreEqual(7.2, v.Value);
+            new MetersPerSecond(1).AreEqualTo(new KiloMetersPerHour(3.6));
         }
+
+        [TestMethod]
+        public void MilePerHourIntoKilometersPerHour()
+        {
+            var mpk = new Mile(1) / new KiloMeter(1);
+            new MilesPerHour(1).AreEqualTo(new KiloMetersPerHour(mpk));
+        }
+
+        [TestMethod]
+        public void MachInKmh()
+        {
+            var mpk = new Mile(1) / new KiloMeter(1);
+            new MilesPerHour(1).AreEqualTo(new KiloMetersPerHour(mpk));
+        }
+
     }
 
 }

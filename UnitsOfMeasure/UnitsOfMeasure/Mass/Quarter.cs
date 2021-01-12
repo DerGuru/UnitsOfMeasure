@@ -8,10 +8,10 @@ namespace UnitsOfMeasure.Masses
 
         public Quarter(double value) : base(value) { }
 
-        public Quarter(BigFloat value) : base(value) { }
+        public Quarter(BigDouble value) : base(value) { }
 
-        public override string Unit => "qu";
+        public override string Unit => "tod";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(12700.586360);
+        public override BigDouble FactorToBaseUnit { get; set; } = new Pound().FactorToBaseUnit * 28;
     }
 }

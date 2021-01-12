@@ -8,10 +8,10 @@ namespace UnitsOfMeasure.Distances
 
         public Parsec(double value) : base(value) { }
 
-        public Parsec(BigFloat value) : base(value) { }
+        public Parsec(BigDouble value) : base(value) { }
 
         public override string Unit => "pc";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(30856775814913673,1);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(30856775814913673);
     }
 }

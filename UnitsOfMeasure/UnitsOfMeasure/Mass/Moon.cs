@@ -8,10 +8,10 @@ namespace UnitsOfMeasure.Masses
 
         public Moon(double value) : base(value) { }
 
-        public Moon(BigFloat value) : base(value) { }
+        public Moon(BigDouble value) : base(value) { }
 
         public override string Unit => "Moon(s)";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(73480000000000000000000000.0);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(7348, 22);
     }
 }

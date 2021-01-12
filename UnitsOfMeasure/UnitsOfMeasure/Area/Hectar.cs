@@ -7,11 +7,11 @@ namespace UnitsOfMeasure.Areas
         public Hectar() { }
         public Hectar(double value) : base(value) { }
 
-        public Hectar(BigFloat value) : base(value) { }
+        public Hectar(BigDouble value) : base(value) { }
 
         public override string Unit => "ha";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(10000);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(1,4);
     }
 
 }

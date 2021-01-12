@@ -8,10 +8,10 @@ namespace UnitsOfMeasure.Masses
 
         public MetricTon(double value) : base(value) { }
 
-        public MetricTon(BigFloat value) : base(value) { }
+        public MetricTon(BigDouble value) : base(value) { }
 
         public override string Unit => "t";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(1000000);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(1, 6);
     }
 }

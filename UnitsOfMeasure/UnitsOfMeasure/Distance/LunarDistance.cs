@@ -8,10 +8,10 @@ namespace UnitsOfMeasure.Distances
 
         public LunarDistance(double value) : base(value) { }
 
-        public LunarDistance(BigFloat value) : base(value) { }
+        public LunarDistance(BigDouble value) : base(value) { }
 
         public override string Unit => "ld";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(3842402000);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(3842402, 3);
     }
 }

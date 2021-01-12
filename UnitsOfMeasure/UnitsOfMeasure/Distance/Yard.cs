@@ -4,14 +4,15 @@ namespace UnitsOfMeasure.Distances
 {
     public class Yard : Distance
     {
+        public static readonly BigDouble Inches = 36;
         public Yard() { }
 
         public Yard(double value) : base(value) { }
 
-        public Yard(BigFloat value) : base(value) { }
+        public Yard(BigDouble value) : base(value) { }
 
         public override string Unit => "yd";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(9144,10000);
+        public override BigDouble FactorToBaseUnit { get; set; } = new Inch().FactorToBaseUnit * Inches;
     }
 }

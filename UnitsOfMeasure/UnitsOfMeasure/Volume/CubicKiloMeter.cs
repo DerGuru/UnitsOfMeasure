@@ -7,10 +7,10 @@ namespace UnitsOfMeasure.Volumes
 
         public CubicKiloMeter(double value) : base(value) { }
 
-        public CubicKiloMeter(BigFloat value) : base(value) { }
+        public CubicKiloMeter(BigDouble value) : base(value) { }
 
         public override string Unit => "km³";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(1000000000);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(1, 9);
     }
 }

@@ -4,10 +4,10 @@ namespace UnitsOfMeasure
 {
     public abstract class Mass : UnitOfMeasure<Mass>
     {
-        protected Mass() { }
-        protected Mass(double value) : base(value) { }
+        public Mass() { }
+        public Mass(double value) : base(value) { }
 
-        protected Mass(BigFloat value) : base(value) { }
+        public Mass(BigDouble value) : base(value) { }
     }
 }
 

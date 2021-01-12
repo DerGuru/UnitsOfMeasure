@@ -8,10 +8,10 @@ namespace UnitsOfMeasure.Volumes
 
         public Liter(double value) : base(value) { }
 
-        public Liter(BigFloat value) : base(value) { }
+        public Liter(BigDouble value) : base(value) { }
 
         public override string Unit => "l";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(0.001);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(1, 3);
     }
 }

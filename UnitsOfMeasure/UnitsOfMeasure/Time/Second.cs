@@ -8,11 +8,11 @@ namespace UnitsOfMeasure.Times
 
         public Second(double value) : base(value) { }
 
-        public Second(BigFloat value) : base(value) { }
+        public Second(BigDouble value) : base(value) { }
 
         public override string Unit => "s";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(1.0);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(1);
     }
 
 }

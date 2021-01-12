@@ -8,10 +8,10 @@ namespace UnitsOfMeasure.Masses
 
         public Earth(double value) : base(value) { }
 
-        public Earth(BigFloat value) : base(value) { }
+        public Earth(BigDouble value) : base(value) { }
 
         public override string Unit => "Earth(s)";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(5973600000000000000000000000.0);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(59736, 23);
     }
 }

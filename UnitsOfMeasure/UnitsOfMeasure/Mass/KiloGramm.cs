@@ -8,10 +8,10 @@ namespace UnitsOfMeasure.Masses
 
         public KiloGramm(double value) : base(value) { }
 
-        public KiloGramm(BigFloat value) : base(value) { }
+        public KiloGramm(BigDouble value) : base(value) { }
 
         public override string Unit => "kg";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(1000);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(1, 3);
     }
 }

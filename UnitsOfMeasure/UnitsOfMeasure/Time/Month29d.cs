@@ -8,10 +8,10 @@ namespace UnitsOfMeasure.Times
 
         public Month29d(double value) : base(value) { }
 
-        public Month29d(BigFloat value) : base(value) { }
+        public Month29d(BigDouble value) : base(value) { }
 
         public override string Unit => "m";
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(2505600.0);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(25056,2);
     }
 
 }

@@ -6,9 +6,9 @@ namespace UnitsOfMeasure.Volumes
     {
         public Earth() { }
         public Earth(double value) : base(value) { }
-        public Earth(BigFloat value) : base(value) { }
+        public Earth(BigDouble value) : base(value) { }
 
         public override string Unit => "Earth(s)";
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(1083206916845753700547.1167989961);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(10832069168457537005471167989961.0, 10);
     }
 }

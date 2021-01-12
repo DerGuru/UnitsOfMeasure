@@ -8,10 +8,10 @@ namespace UnitsOfMeasure.Masses
 
         public HundredWeight(double value) : base(value) { }
 
-        public HundredWeight(BigFloat value) : base(value) { }
+        public HundredWeight(BigDouble value) : base(value) { }
 
         public override string Unit => "cwt";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(50802.34544);
+        public override BigDouble FactorToBaseUnit { get; set; } = new Pound().FactorToBaseUnit * 112;
     }
 }

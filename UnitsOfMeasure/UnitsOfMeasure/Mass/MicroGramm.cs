@@ -8,10 +8,10 @@ namespace UnitsOfMeasure.Masses
 
         public MicroGramm(double value) : base(value) { }
 
-        public MicroGramm(BigFloat value) : base(value) { }
+        public MicroGramm(BigDouble value) : base(value) { }
 
         public override string Unit => "μg";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(0.000001);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(1,-6);
     }
 }

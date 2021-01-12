@@ -8,11 +8,11 @@ namespace UnitsOfMeasure.Times
 
         public Day(double value) : base(value) { }
 
-        public Day(BigFloat value) : base(value) { }
+        public Day(BigDouble value) : base(value) { }
 
         public override string Unit => "d";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(86400.0);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(864, 2);
     }
 
 }

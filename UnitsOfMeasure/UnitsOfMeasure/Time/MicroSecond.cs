@@ -8,11 +8,11 @@ namespace UnitsOfMeasure.Times
 
         public MicroSecond(double value) : base(value) { }
 
-        public MicroSecond(BigFloat value) : base(value) { }
+        public MicroSecond(BigDouble value) : base(value) { }
 
         public override string Unit => "μs";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(0.000001);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(1,-6);
     }
 
 }

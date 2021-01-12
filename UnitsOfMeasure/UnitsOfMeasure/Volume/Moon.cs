@@ -8,10 +8,10 @@ namespace UnitsOfMeasure.Volumes
 
         public Moon(double value) : base(value) { }
 
-        public Moon(BigFloat value) : base(value) { }
+        public Moon(BigDouble value) : base(value) { }
 
         public override string Unit => "Moon(s)";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(21990642870864709217.827712858943);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(21990642870864709217827712858943.0, 12);
     }
 }

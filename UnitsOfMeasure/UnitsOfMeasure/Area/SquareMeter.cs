@@ -8,10 +8,10 @@ namespace UnitsOfMeasure.Areas
 
         public SquareMeter(double value) : base(value) { }
 
-        public SquareMeter(BigFloat value) : base(value) { }
+        public SquareMeter(BigDouble value) : base(value) { }
 
         public override string Unit => "m²";
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(1);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(1);
 
     }
 

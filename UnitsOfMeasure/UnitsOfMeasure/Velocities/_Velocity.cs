@@ -1,21 +1,51 @@
-﻿using System.Numerics;
+﻿using System;
+using System.Numerics;
 
 namespace UnitsOfMeasure
 {
-    public abstract class Velocity : UnitOfMeasure<Velocity>
+    public class Velocity : UnitOfMeasure<Velocity>
     {
-        protected Velocity() { }
+        public Velocity() : base() { }
 
-        protected Velocity(double value) : base(value){}
+        public Velocity(double value) : base(value) { }
 
-        protected Velocity(BigFloat value) : base(value){}
+        public Velocity(BigDouble value) : base(value) { }
 
-        public static MultiplicationCompound<Distance, Velocity, Time> operator *(Velocity v, Time t) => new MultiplicationCompound<Distance, Velocity, Time>(v, t);
-        public static MultiplicationCompound<Distance, Velocity, Time> operator *(Time t, Velocity v) => new MultiplicationCompound<Distance, Velocity, Time>(v, t);
+        public static Distance operator *(Velocity v, Time t) => Multiply(v, t, new Distance());
+        public static Distance operator *(Time t, Velocity v) => Multiply(v, t, new Distance());
     }
 
-    public class Velocity<DistanceType, TimeType> : DivisionCompound<Velocity,Distance, Time> where DistanceType : Distance where TimeType : Time
+    public class Velocity<DistanceType, TimeType> : Velocity where DistanceType : Distance, new() where TimeType : Time, new()
     {
-        public Velocity(Distance d, Time t) : base (d, t){}
+        public Velocity() : base()
+        {
+        }
+        public Velocity(double value) : base(value)
+        {
+
+        }
+
+        public Velocity(BigDouble value) : base(value)
+        {
+        }
+
+        public override string Unit { get; set; } = SetUnits();
+
+        private static string SetUnits()
+        {
+            var a = new DistanceType();
+            var b = new TimeType();
+            return $"{a.Unit}/{b.Unit}";
+
+        }
+
+        public override BigDouble FactorToBaseUnit { get; set; } = SetFactors();
+
+        private static BigDouble SetFactors()
+        {
+            var a = new DistanceType();
+            var b = new TimeType();
+            return a.FactorToBaseUnit / b.FactorToBaseUnit;
+        }
     }
 }

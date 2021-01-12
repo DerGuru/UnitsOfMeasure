@@ -9,12 +9,12 @@ namespace UnitsOfMeasure.Areas
         public Saarland(double value) : base(value) { }
 
 
-        public Saarland(BigFloat value) : base(value) { }
+        public Saarland(BigDouble value) : base(value) { }
 
 
         public override string Unit => "Saarla(e)nd(er)";
 
-        public override BigFloat FactorToBaseUnit {get;} = new BigFloat(2570000000);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(257,7);
     }
 
 }

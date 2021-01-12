@@ -8,11 +8,11 @@ namespace UnitsOfMeasure.Areas
 
         public Ar(double value) : base(value) { }
 
-        public Ar(BigFloat value) : base(value) { }
+        public Ar(BigDouble value) : base(value) { }
 
         public override string Unit => "a";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(100);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(1,2);
     }
 
 }

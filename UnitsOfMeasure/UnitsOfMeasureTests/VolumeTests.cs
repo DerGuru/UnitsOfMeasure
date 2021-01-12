@@ -7,7 +7,7 @@ using UnitsOfMeasure.Distances;
 namespace UnitsOfMeasureTests
 {
     [TestClass]
-    public class AreaTests
+    public class VolumeTests
     {
 
         [TestMethod]

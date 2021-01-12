@@ -8,10 +8,10 @@ namespace UnitsOfMeasure.Volumes
 
         public CubicMilliMeter(double value) : base(value) { }
 
-        public CubicMilliMeter(BigFloat value) : base(value) { }
+        public CubicMilliMeter(BigDouble value) : base(value) { }
 
         public override string Unit => "mm³";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(0.000000001);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(1,-9);
     }
 }

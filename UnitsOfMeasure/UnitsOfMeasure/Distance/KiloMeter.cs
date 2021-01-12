@@ -8,10 +8,10 @@ namespace UnitsOfMeasure.Distances
 
         public KiloMeter(double value) : base(value) { }
 
-        public KiloMeter(BigFloat value) : base(value) { }
+        public KiloMeter(BigDouble value) : base(value) { }
 
         public override string Unit => "km";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(1000,1);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(1, 3);
     }
 }

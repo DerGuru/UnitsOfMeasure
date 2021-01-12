@@ -8,10 +8,10 @@ namespace UnitsOfMeasure.Volumes
 
         public HectoLiter(double value) : base(value){}
 
-        public HectoLiter(BigFloat value) : base(value){}
+        public HectoLiter(BigDouble value) : base(value){}
 
         public override string Unit => "hl";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(0.1);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(1, -1);
     }
 }

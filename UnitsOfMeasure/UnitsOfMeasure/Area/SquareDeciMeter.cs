@@ -9,11 +9,11 @@ namespace UnitsOfMeasure.Areas
         public SquareDeciMeter(double value) : base(value) { }
 
 
-        public SquareDeciMeter(BigFloat value) : base(value) { }
+        public SquareDeciMeter(BigDouble value) : base(value) { }
 
         public override string Unit => "dm²";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(0.01);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(1, -2);
     }
 
 }

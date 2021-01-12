@@ -4,8 +4,8 @@ namespace UnitsOfMeasure
 {
     public abstract class Time : UnitOfMeasure<Time>
     {
-        protected Time() { }
-        protected Time(double value) : base(value) { }
-        protected Time(BigFloat value) : base(value) { }
+        public Time() { }
+        public Time(double value) : base(value) { }
+        public Time(BigDouble value) : base(value) { }
     }
 }

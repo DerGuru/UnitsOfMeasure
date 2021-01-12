@@ -8,10 +8,10 @@ namespace UnitsOfMeasure.Distances
 
         public Meter(double value) : base (value) { }
 
-        public Meter(BigFloat value) : base(value) { }
+        public Meter(BigDouble value) : base(value) { }
 
         public override string Unit => "m";
 
-        public override BigFloat FactorToBaseUnit { get; } = new BigFloat(1);
+        public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(1);
     }
 }
