@@ -174,7 +174,6 @@ namespace System.Numerics
             {
                 return Mantissa > 0 ? 5e-324 : -5e-324;
             }
-
             var result = Mantissa * PowersOf10.Lookup(Exponent);
             if (!IsFinite(result) || Exponent < 0)
             {
@@ -414,30 +413,15 @@ namespace System.Numerics
             return Add(left, right);
         }
 
-        public static BigDouble operator -(BigDouble left, BigDouble right)
-        {
-            return Subtract(left, right);
-        }
+        public static BigDouble operator -(BigDouble left, BigDouble right) => Subtract(left, right);
 
-        public static BigDouble operator *(BigDouble left, BigDouble right)
-        {
-            return Multiply(left, right);
-        }
+        public static BigDouble operator *(BigDouble left, BigDouble right) => Multiply(left, right);
 
-        public static BigDouble operator /(BigDouble left, BigDouble right)
-        {
-            return Divide(left, right);
-        }
+        public static BigDouble operator /(BigDouble left, BigDouble right) => Divide(left, right);
 
-        public static BigDouble operator ++(BigDouble value)
-        {
-            return value.Add(1);
-        }
+        public static BigDouble operator ++(BigDouble value) => value.Add(1);
 
-        public static BigDouble operator --(BigDouble value)
-        {
-            return value.Subtract(1);
-        }
+        public static BigDouble operator --(BigDouble value) => value.Subtract(1);
 
         public int CompareTo(object other)
         {
@@ -478,49 +462,19 @@ namespace System.Numerics
             return Abs(this - other) <= Max(Abs(this), Abs(other)) * Tolerance ? 0 : Mantissa.CompareTo(other.Mantissa);
         }
 
-        public override bool Equals(object other)
-        {
-            return other is BigDouble && Equals((BigDouble)other);
-        }
+        public override bool Equals(object other) => other is BigDouble && Equals((BigDouble)other);
 
-        public override int GetHashCode()
-        {
-            unchecked
-            {
-                return (Mantissa.GetHashCode() * 397) ^ Exponent.GetHashCode();
-            }
-        }
+        public override int GetHashCode() =>  Mantissa.GetHashCode() ^ Exponent.GetHashCode();
 
         public bool Equals(BigDouble other) => Equals(other, Tolerance);
 
-        /// <summary>
-        /// Relative comparison with tolerance being adjusted with greatest exponent.
-        /// <para>
-        /// For example, if you put in 1e-9, then any number closer to the larger number
-        /// than (larger number) * 1e-9 will be considered equal.
-        /// </para>
-        /// </summary>
-        public bool Equals(BigDouble other, double tolerance)
-        {
-            return !IsNaN(this) && !IsNaN(other) && (AreSameInfinity(this, other)
-                || Abs(this - other) <= Max(Abs(this), Abs(other)) * tolerance);
-        }
+        public bool Equals(BigDouble other, double tolerance) => !IsNaN(this) && !IsNaN(other) && (AreSameInfinity(this, other) || Abs(this - other) <= Max(Abs(this), Abs(other)) * tolerance);
 
-        private static bool AreSameInfinity(BigDouble first, BigDouble second)
-        {
-            return IsPositiveInfinity(first) && IsPositiveInfinity(second)
-                || IsNegativeInfinity(first) && IsNegativeInfinity(second);
-        }
+        private static bool AreSameInfinity(BigDouble first, BigDouble second) => IsPositiveInfinity(first) && IsPositiveInfinity(second) || IsNegativeInfinity(first) && IsNegativeInfinity(second);
 
-        public static bool operator ==(BigDouble left, BigDouble right)
-        {
-            return left.Equals(right);
-        }
+        public static bool operator ==(BigDouble left, BigDouble right) => left.Equals(right);
 
-        public static bool operator !=(BigDouble left, BigDouble right)
-        {
-            return !(left == right);
-        }
+        public static bool operator !=(BigDouble left, BigDouble right) => !(left == right);
 
         public static bool operator <(BigDouble a, BigDouble b)
         {

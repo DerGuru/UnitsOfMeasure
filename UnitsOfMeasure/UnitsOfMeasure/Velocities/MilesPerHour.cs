@@ -1,15 +1,14 @@
 ﻿using System.Numerics;
-using UnitsOfMeasure.Distances;
-using UnitsOfMeasure.Times;
 
 namespace UnitsOfMeasure.Velocities
 {
-    public class MilesPerHour : Velocity<Mile,Hour>
+    public class MilesPerHour : Velocity
     {
-        public MilesPerHour(){}
-
-        public MilesPerHour(double value) : base(value){}
-
-        public MilesPerHour(BigDouble value) : base(value){}
+        private static BigDouble GetFactor() => (new Distances.Mile(1) / new Times.Hour(1)).FactorToBaseUnit;
+        private static readonly BigDouble factor = GetFactor();
+        public MilesPerHour() { }
+        public MilesPerHour(BigDouble value) : base(value) { }
+        public override string Unit { get; set; } = "mi/h";
+        public override BigDouble FactorToBaseUnit { get; set; } = factor;
     }
 }

@@ -6,8 +6,6 @@ namespace UnitsOfMeasure.Times
     {
         public Day() { }
 
-        public Day(double value) : base(value) { }
-
         public Day(BigDouble value) : base(value) { }
 
         public override string Unit => "d";

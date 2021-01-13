@@ -1,11 +1,13 @@
 ﻿using System.Numerics;
+using UnitsOfMeasure.Frequencies;
 
 namespace UnitsOfMeasure
 {
-    public abstract class Time : UnitOfMeasure<Time>
+    public class Time : UnitOfMeasure<Time>
     {
+        public static Time SiUnit { get; } = new Times.Second();
         public Time() { }
-        public Time(double value) : base(value) { }
         public Time(BigDouble value) : base(value) { }
+        public static Frequency operator /(BigDouble n, Time t) => new Herz(n / t.FactorToBaseUnit);
     }
 }

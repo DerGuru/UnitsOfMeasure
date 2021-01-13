@@ -1,130 +1,104 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Numerics;
 using UnitsOfMeasure;
-using UnitsOfMeasure.Areas;
-using UnitsOfMeasure.Distances;
+using UnitsOfMeasure.Frequencies;
+using UnitsOfMeasure.Times;
 
 namespace UnitsOfMeasureTests
 {
     [TestClass]
     public class TimeTests
     {
-
         [TestMethod]
-        public void Ar()
+        public void SiUnit()
         {
-            new SquareMeter(100).AreOne<Ar>();
+            Assert.IsInstanceOfType(Time.SiUnit, typeof(Second));
         }
 
         [TestMethod]
-        public void Earth()
+        public void TimeToFrequency()
         {
-            new SquareMeter(510000000000000).AreOne<Earth>();
+            var f = 1 / new Second(1);
+            Assert.IsInstanceOfType(f, typeof(Herz));
+            f.AreOne<Herz>("Hz");
         }
 
         [TestMethod]
-        public void Hectar()
+        public void NanoSecondsToMicroSecond()
         {
-            new SquareMeter(10000).AreOne<Hectar>();
+            new NanoSecond(1000).AreOne<MicroSecond>("ns");
+        }
+        [TestMethod]
+        public void MicroSecondToMilliSecond()
+        {
+            new MicroSecond(1000).AreOne<MilliSecond>("μs");
+        }
+        [TestMethod]
+        public void MilliSecondToSecond()
+        {
+            new MilliSecond(1000).AreOne<Second>("ms");
         }
 
         [TestMethod]
-        public void Moon()
+        public void OneSecond()
         {
-            new SquareKiloMeter(new BigDouble(37932330)).AreOne<Moon>();
+            new Second(1).AreOne<Second>("s");
         }
 
         [TestMethod]
-        public void Saarland()
+        public void SecondToMinute()
         {
-            new SquareMeter(2570000000).AreOne<Saarland>();
+            new Second(60).AreOne<Minute>("min");
         }
 
         [TestMethod]
-        public void Soccerfield()
+        public void HourToMinute()
         {
-            new SquareMeter(7140).AreOne<SoccerField>();
-        }
-
-        [TestMethod]
-        public void FootballField()
-        {
-            var ff = new FootballField(1);
-            var x = new Yard(100);
-            var y = new Foot(160);
-            var a =  x * y;
-            Assert.AreEqual(a, ff);
-            var sqm = ff.Convert<SquareMeter>();
-            Assert.IsTrue( sqm.Value == ff.FactorToBaseUnit);
+            new Minute(60).AreOne<Hour>("h");
         }
         [TestMethod]
-        public void CentiMeter()
+        public void DayToHour()
         {
-            new SquareCentiMeter(10000).AreOne<SquareMeter>();
+            new Hour(24).AreOne<Day>("d");
         }
         [TestMethod]
-        public void DeciMeter()
+        public void WeekToDay()
         {
-            new SquareDeciMeter(100).AreOne<SquareMeter>();
+            new Day(7).AreOne<Week>("w");
         }
         [TestMethod]
-        public void Foot()
+        public void Month28ToWeek()
         {
-            var bf = new SquareMeter(1).FactorToBaseUnit / new SquareFoot(1).FactorToBaseUnit;
-            new SquareFoot(bf).AreOne<SquareMeter>();
+            new Week(4).AreOne<Month28d>("m");
         }
         [TestMethod]
-        public void Inch()
+        public void Month28ToDay()
         {
-            var bf = new SquareMeter(1).FactorToBaseUnit / new SquareInch(1).FactorToBaseUnit;
-            new SquareInch(bf).AreOne<SquareMeter>();
+            new Day(28).AreOne<Month28d>("m");
         }
         [TestMethod]
-        public void KiloMeter()
+        public void Month29ToDay()
         {
-            new SquareMeter(1000000).AreOne<SquareKiloMeter>();
+            new Day(29).AreOne<Month29d>("m");
         }
         [TestMethod]
-        public void Meter()
+        public void Month30ToDay()
         {
-            new SquareMeter(1).AreOne<SquareMeter>();
+            new Day(30).AreOne<Month30d>("m");
         }
         [TestMethod]
-        public void Micrometer()
+        public void Month31ToDay()
         {
-            new SquareMicroMeter(1000000000000).AreOne<SquareMeter>();
+            new Day(31).AreOne<Month31d>("m");
         }
         [TestMethod]
-        public void Mile()
+        public void YearDays()
         {
-            new SquareMeter(2589988.110336).AreOne<SquareMile>();
+            new Day(365).AreOne<Year>("y");
         }
         [TestMethod]
-        public void MilliMeter()
+        public void LeapYearToDays()
         {
-            new SquareMilliMeter(1000000).AreOne<SquareMeter>();
-        }
-        [TestMethod]
-        public void NanoMeter()
-        {
-            new SquareNanoMeter(1000000).AreOne<SquareMicroMeter>();
-        }
-        [TestMethod]
-        public void Yard()
-        {
-            var bd = new BigDouble(100000000) / new BigDouble(83612736);
-            new SquareYard(bd).AreOne<SquareMeter>();
-        }
-
-        [TestMethod]
-        public void FooBar()
-        {
-            var a = new Hectar(1);
-            var d = new Meter(100);
-
-            var res = a / d;
-            var m = res.Convert<Meter>();
-            Assert.AreEqual(100.0, m.Value);
+            new Day(366).AreOne<LeapYear>("y");
         }
     }
 
