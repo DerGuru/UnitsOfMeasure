@@ -11,6 +11,22 @@ namespace BigDoubleTests
     [TestClass]
     public class Tests
     {
+
+        [TestMethod]
+        public void _doubleTest()
+        {
+            double d = 123456788;
+            Assert.AreEqual(123456788, d);
+           
+            Console.WriteLine(DoubleConverter.ToExactString(d));
+            d /= 1e8;
+            Assert.AreEqual(1.23456788, d);
+            Console.WriteLine(DoubleConverter.ToExactString(d));
+            d *= 1e8;
+            Console.WriteLine(DoubleConverter.ToExactString(d));
+            Assert.AreEqual(123456788, d);
+        }
+
         public static BigDouble TestValueExponent4 = BigDouble.Parse("1.23456789e1234");
         public static BigDouble TestValueExponent1 = BigDouble.Parse("1.234567893e3");
 
@@ -327,7 +343,7 @@ namespace BigDoubleTests
             .Value("0", 0)
             .Value("Integer", 345)
             .Value("Negative integer", -745)
-            .Value("Big integer", 123456789)
+            .Value("Big integer", 123456788)
             .Value("Big negative integer", -987654321)
             .Value("Small integer", 4)
             .Value("Small negative integer", -5)
@@ -367,7 +383,7 @@ namespace BigDoubleTests
                 get
                 {
                     return values
-                        .Select(v => new UnaryTestCase(v.Value, v.Precision));
+                        .Select(v => new UnaryTestCase(v.Name, v.Value, v.Precision));
                 }
             }
 
@@ -402,7 +418,7 @@ namespace BigDoubleTests
 
             private static BinaryTestCase TestCaseData(TestCaseValue first, TestCaseValue second)
             {
-                var testCase = new BinaryTestCase(first.Value, second.Value, Math.Max(first.Precision, second.Precision));
+                var testCase = new BinaryTestCase(first.Name, first.Value, second.Value, Math.Max(first.Precision, second.Precision));
                 return testCase;
             }
 
@@ -421,11 +437,11 @@ namespace BigDoubleTests
             }
         }
 
-        public static void AssertEqual(BigDouble bigDouble, double @double, double precision)
+        public static void AssertEqual(BigDouble bigDouble, double @double, double precision, string name)
         {
             if (IsOutsideDoubleRange(bigDouble))
             {
-                Debug.WriteLine("Result is not in range of possible Double values");
+                Console.WriteLine("Result is not in range of possible Double values");
                 return;
             }
 
@@ -435,9 +451,12 @@ namespace BigDoubleTests
             }
             try
             {
-                Assert.IsTrue(bigDouble.Equals(@double, precision), $"Double implementation: {@double}, BigDouble implementation {bigDouble}");
+                Assert.AreEqual(@double, bigDouble, $"Double implementation: {@double}, BigDouble implementation {bigDouble}");
             }
-            catch { }
+            catch (Exception e)
+            {
+                Console.WriteLine($"{name}:\t {e.Message}");
+            }
         }
 
         private static bool IsOutsideDoubleRange(BigDouble bigDouble)
@@ -456,9 +475,10 @@ namespace BigDoubleTests
             private readonly double @double;
             private readonly BigDouble bigDouble;
             private readonly double precision;
-
-            public UnaryTestCase(double @double, double precision = 1e-13)
+            private readonly string name;
+            public UnaryTestCase(string name, double @double, double precision = 1e-13)
             {
+                this.name = name;
                 this.@double = @double;
                 bigDouble = @double;
                 this.precision = precision;
@@ -469,7 +489,7 @@ namespace BigDoubleTests
             public void AssertEqual(Func<double, double> doubleOperation,
                 Func<BigDouble, BigDouble> bigDoubleOperation)
             {
-                AssertEqual(doubleOperation, bigDoubleOperation, precision);
+                AssertEqual( doubleOperation, bigDoubleOperation, precision);
             }
 
             public void AssertEqual(Func<double, double> doubleOperation,
@@ -477,7 +497,7 @@ namespace BigDoubleTests
             {
                 var doubleResult = doubleOperation(@double);
                 var bigDoubleResult = bigDoubleOperation(bigDouble);
-                Tests.AssertEqual(bigDoubleResult, doubleResult, operationPrecision);
+                Tests.AssertEqual(bigDoubleResult, doubleResult, operationPrecision, name);
             }
         }
 
@@ -486,9 +506,11 @@ namespace BigDoubleTests
             private readonly (double first, double second) doubles;
             private readonly (BigDouble first, BigDouble second) bigDoubles;
             private readonly double precision;
+            private readonly string name;
 
-            public BinaryTestCase(double first, double second, double precision = BigDouble.Tolerance)
+            public BinaryTestCase(string name, double first, double second, double precision = BigDouble.Tolerance)
             {
+                this.name = name;
                 doubles = (first, second);
                 bigDoubles = (first, second);
                 this.precision = precision;
@@ -499,7 +521,7 @@ namespace BigDoubleTests
             {
                 var doubleResult = doubleOperation(doubles.first, doubles.second);
                 var bigDoubleResult = bigDoubleOperation(bigDoubles.first, bigDoubles.second);
-                Tests.AssertEqual(bigDoubleResult, doubleResult, precision);
+                Tests.AssertEqual(bigDoubleResult, doubleResult, precision, name);
             }
 
             public void AssertComparison(Func<double, double, bool> doubleOperation,
