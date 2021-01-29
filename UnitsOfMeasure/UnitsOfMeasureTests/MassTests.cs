@@ -120,5 +120,23 @@ namespace UnitsOfMeasureTests
         {
             new MetricTon(new BigDouble(19891, 32)).AreOne<Sun>("t");
         }
+
+        [TestMethod]
+        public void Carat()
+        {
+            new Carat(5).AreOne<Gramm>("ct");
+        }
+
+        [TestMethod]
+        public void Point()
+        {
+            new Point(100).AreOne<Carat>("pt");
+        }
+
+        [TestMethod]
+        public void FineOunze()
+        {
+            new Carat(5* 31.103476800000006).AreOne<TroyOunce>("ct");
+        }
     }
 }
