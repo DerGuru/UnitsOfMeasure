@@ -9,5 +9,4 @@ namespace UnitsOfMeasure.Times
         public override string Unit => "y";
         public override BigDouble FactorToBaseUnit { get; set; } = new BigDouble(316224,2);
     }
-
 }

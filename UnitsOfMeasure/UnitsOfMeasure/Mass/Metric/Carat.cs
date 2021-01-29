@@ -2,6 +2,7 @@
 
 namespace UnitsOfMeasure.Masses
 {
+    //Mass of gem stones
     public class Carat : Mass
     {
         public Carat() { }

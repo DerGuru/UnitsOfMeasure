@@ -1,7 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -68,7 +67,6 @@ namespace BigDoubleTests
         [TestMethod]
         public void TestPow()
         {
-            // TODO: Proper test description and test cases
             var result = BigDouble.Pow(1.15f, 6000);
             Assert.IsFalse(BigDouble.IsInfinity(result));
         }
